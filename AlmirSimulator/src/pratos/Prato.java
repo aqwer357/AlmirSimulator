@@ -9,7 +9,6 @@ public abstract class Prato {
 	
 	public String getNome() {
 		return nome;
-		
 	}
 
 }
