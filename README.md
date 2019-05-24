@@ -5,5 +5,5 @@ Projeto IP 2019.1
   - Artur Cassimiro Alves (aca7)- Prato
   - Charles Gabriel Carvalho Cristovão (cgcc)- Ingrediente
   - Gabriel de Alburquerque Souza Meirelles (gasm)- Fornecedor
-  - Gustavo - Cliente
+  - Gustavo Chaves Galdino de Moraes (gcgm)- Cliente
   - Thayna Emily Cavalcante Santos (tecs)- Pedido
