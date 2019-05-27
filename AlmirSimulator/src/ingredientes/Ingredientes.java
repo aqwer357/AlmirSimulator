@@ -8,5 +8,10 @@ public class Ingredientes {
 		this.nome = nome;
 		this.qtd = qtd;
 	}
-	
+	public String getNome() {
+		return this.nome;
+	}
+	public int getQtd() {
+		this.qtd;
+	}
 }
