@@ -18,6 +18,30 @@ public class RepositorioClienteLista {
             this.next.insert(cliente);
         }
     }
-
-
+    
+    public boolean existe(Cliente cliente){
+    	if(this.cliente == null) {
+    		return false;
+    	}
+    	else{
+    		if(this.cliente == cliente) {
+    			return true;
+    		}
+    		else {
+    			return this.next.existe(cliente);
+    		}
+    	}
+    }
+    
+    public void remover(Cliente cliente) {
+    	if(this.cliente.equals(cliente)) {
+    		this.cliente = this.next.cliente;
+    		this.next = this.next.next;
+    	}
+    	else {
+    		this.next.remover(cliente);
+    	}
+    }
+    
+    
 }
