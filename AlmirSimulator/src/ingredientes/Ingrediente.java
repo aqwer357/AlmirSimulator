@@ -1,6 +1,6 @@
 package ingredientes;
 
-public class Ingredientes {
+public class Ingrediente {
 	private String nome;
 	private int qtd;
 	
@@ -15,3 +15,4 @@ public class Ingredientes {
 		this.qtd;
 	}
 }
+
