@@ -4,7 +4,7 @@ public class Ingrediente {
 	private String nome;
 	private int qtd;
 	
-	Ingredientes(String nome, int qtd) {
+	Ingrediente(String nome, int qtd) {
 		this.nome = nome;
 		this.qtd = qtd;
 	}
@@ -12,7 +12,7 @@ public class Ingrediente {
 		return this.nome;
 	}
 	public int getQtd() {
-		this.qtd;
+		return this.qtd;
 	}
 }
 
