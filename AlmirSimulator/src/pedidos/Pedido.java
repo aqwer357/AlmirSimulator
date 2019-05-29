@@ -1,25 +1,23 @@
 package pedidos;
+import clientes.Cliente;
 
 public class Pedido {
-    private String[] refeicoes;
-    private int contador;
+    private String refeicao;
+    private Cliente cliente;
 
-    public Pedido(int quantidade) {
-        this.refeicoes = new String[quantidade];
-        contador = 0;
+    public Pedido(String refeicao, Cliente cliente) {
+        this.refeicao = refeicao;
+        this.cliente = cliente;
     }
-
-    public void CadastrasPedidos(String pedido) throws PedidosOverFlowException {
-        if (contador < this.cliente.getNumPedidos()) { //anti-corrupção;
-            refeicoes[contador] = pedido;
-            contador++;
-
-        } else {
-            PedidosOverFlowException erro = new PedidosOverFlowException();
-            throw erro;
-        }
+    
+    public void setPedido(String refeicao) {
+    	this.refeicao = refeicao;
     }
-    public String getPedido(String cliente, String prato) throws PratoNaoEncontradoException{
-
+    
+    public String getPedido() {
+    	return this.refeicao;
+    }
+    public Cliente getCliente() {
+    	return this.cliente;
     }
 }
