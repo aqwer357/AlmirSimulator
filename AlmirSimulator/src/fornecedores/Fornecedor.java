@@ -1,13 +1,18 @@
 package fornecedores;
-
+import ingredientes.*;
 public class Fornecedor {
 	private String nome;
-	private RepositoriosIngredientesArray ingredientes;
+	private RepositorioIngredientes ingredientes;
 	private int identificador;
-	
-	public Fornecedor(String nome, RepositoriosIngredientesArray ingredientes, int identificador) {
+	String tipo;
+	public Fornecedor(String nome, RepositorioIngredientes ingredientes, int identificador, String tipo) {
 		this.nome = nome;
-		this.ingredientes =ingredientes;
+		if(tipo.equals("array")) {
+			this.ingredientes = new RepositorioIngredientesArray();
+		}
+		else {
+			this.ingredientes = new RepositorioIngredientesLista();
+		}
 		this.identificador = identificador;
 	}
 	
@@ -15,16 +20,16 @@ public class Fornecedor {
 		this.nome = nome;
 	}
 	
-	public void setIngrediente(Ingrediente ingrediente) {
-		this.ingrediente = ingrediente;
+	public void setIngredientes(RepositorioIngredientes ingredientes) {
+		this.ingredientes = ingredientes;
 	}
 	
 	public String getNome() {
 		return this.nome;
 	}
 	
-	public Ingrediente getIngrediente() {
-		return this.ingrediente;
+	public RepositorioIngredientes getIngredientes() {
+		return this.ingredientes;
 	}
 	public int getIdentificador() {
 		return this.identificador;
