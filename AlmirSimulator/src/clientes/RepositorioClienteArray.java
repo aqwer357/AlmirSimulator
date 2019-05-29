@@ -1,4 +1,5 @@
+package clientes;
 
-public class RepositorioClienteArray {
+public class RepositorioClienteArray implements RepositorioCliente {
 
 }
