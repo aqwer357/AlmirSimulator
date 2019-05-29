@@ -3,20 +3,20 @@ package pratos;
 import ingredientes.Ingrediente;
 
 public abstract class Prato {
-	private int codigo;
+	private int codigoPrato;
 	private Ingrediente[] ingredientes;
 
-	public Prato(int codigo, Ingrediente[] ingredientes) {
-		this.codigo = codigo;
+	public Prato(int codigoPrato, Ingrediente[] ingredientes) {
+		this.codigoPrato = codigoPrato;
 		this.setIngredientes(ingredientes);
 	}
 
 	public int getCodigo() {
-		return codigo;
+		return codigoPrato;
 	}
 
-	protected void setCodigo(int codigo) {
-		this.codigo = codigo;
+	protected void setCodigo(int codigoPrato) {
+		this.codigoPrato = codigoPrato;
 	}
 
 	public Ingrediente[] getIngredientes() {

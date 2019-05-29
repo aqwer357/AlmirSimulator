@@ -4,8 +4,8 @@ import ingredientes.Ingrediente;
 
 public class PratoComum extends Prato {
 
-	public PratoComum(int codigo, Ingrediente[] ingredientes) {
-		super(codigo, ingredientes);
+	public PratoComum(int codigoPrato, Ingrediente[] ingredientes) {
+		super(codigoPrato, ingredientes);
 	}
 	
 	public String getInformacoes() {

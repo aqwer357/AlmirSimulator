@@ -5,10 +5,10 @@ public interface RepositorioPratos {
 	
 	void atualizar(Prato prato);
 	
-	void remover(int codigo) throws PNEException;
+	void remover(int codigoPrato) throws PNEException;
 	
-	Prato procurar(int codigo);
+	Prato procurar(int codigoPrato);
 	
-	boolean existe(int codigo);
+	boolean existe(int codigoPrato);
 	
 }

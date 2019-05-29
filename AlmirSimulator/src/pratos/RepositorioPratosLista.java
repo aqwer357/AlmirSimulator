@@ -25,24 +25,28 @@ public class RepositorioPratosLista implements RepositorioPratos {
 		
 	}
 
-	public void remover(int codigo) throws PNEException {
-		if (this.prato.getCodigo() == codigo) {
+	public void remover(int codigoPrato) throws PNEException {
+		if (this.prato.getCodigo() == codigoPrato) {
 			this.prato = this.proximo.prato;
 			this.proximo = this.proximo.proximo;
 		} else if (this.proximo == null)
 			throw new PNEException();
 		else
-			this.proximo.remover(codigo);
+			this.proximo.remover(codigoPrato);
 	}
 
-	public Prato procurar(int codigo) {
+	public Prato procurar(int codigoPrato) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public boolean existe(int codigo) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existe(int codigoPrato) {
+		if (this.prato.getCodigo() == codigoPrato)
+			return true;
+		else if (this.proximo == null)
+			return false;
+		else
+			return this.proximo.existe(codigoPrato);
 	}
 	
 }
