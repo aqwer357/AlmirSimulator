@@ -1,16 +1,14 @@
 package pratos;
 
+import ingredientes.Ingrediente;
+
 public abstract class Prato {
 	private int codigo;
-	private String nome;
+	private Ingrediente[] ingredientes;
 
-	public Prato(String nome, int codigo) {
-		this.nome = nome;
+	public Prato(int codigo, Ingrediente[] ingredientes) {
 		this.codigo = codigo;
-	}
-	
-	public String getNome() {
-		return nome;
+		this.setIngredientes(ingredientes);
 	}
 
 	public int getCodigo() {
@@ -20,6 +18,25 @@ public abstract class Prato {
 	protected void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+
+	public Ingrediente[] getIngredientes() {
+		return ingredientes;
+	}
 	
-	public abstract 
+	public String printIngredientes() {
+		String output = "";
+		
+		for (int i = 0; i < ingredientes.length; i++) {
+			output += ingredientes[i].getNome() + "\n";
+		}
+		
+		return output;
+	}
+	
+	protected void setIngredientes(Ingrediente[] ingredientes) {
+		this.ingredientes = ingredientes;
+	}
+	
+	abstract String getInformacoes();
+	
 }
