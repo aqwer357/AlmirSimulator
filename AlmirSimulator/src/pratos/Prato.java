@@ -11,6 +11,10 @@ public abstract class Prato {
 		this.setIngredientes(ingredientes);
 	}
 
+	public Prato(String nome) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCodigo() {
 		return codigoPrato;
 	}

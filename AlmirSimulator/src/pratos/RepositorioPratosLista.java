@@ -36,9 +36,9 @@ public class RepositorioPratosLista implements RepositorioPratos {
 	}
 
 	public Prato procurar(int codigoPrato) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		if (this.prato.getCodigo() == codigoPrato)
+			return this.prato;
+		}
 
 	public boolean existe(int codigoPrato) {
 		if (this.prato.getCodigo() == codigoPrato)
