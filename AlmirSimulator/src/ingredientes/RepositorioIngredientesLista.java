@@ -9,24 +9,29 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 		this.proximo= null;
 	}
 	
-	public void inserir(Ingrediente ingrediente) {
+	public void inserir(Ingrediente ingrediente) throws IngredienteJaExisteException {
 		if (this.ingrediente == null) {
 			this.ingrediente = ingrediente;
 			this.proximo = new RepositorioIngredientesLista();
 		} else {
-			proximo.inserir(ingrediente);
+			if (this.ingrediente.getNome() != ingrediente.getNome()) {
+				proximo.inserir(ingrediente);
+			} else {
+				throw new IngredienteJaExisteException();
+			}
 		}
 	}
 	
-	public void atualizar(Ingrediente ingrediente) {
+	public void atualizar(Ingrediente ingrediente) throws IngredienteNaoEncontradoException, IngredienteJaExisteException {
 		Ingrediente ingredienteAlvo;
-		ingredienteAlvo = procurar(ingrediente.getNome());
-		this.remover(ingredienteAlvo.getNome());
-		this.inserir(ingrediente);
-		
+		if (existe(ingrediente.getNome())) {
+			ingredienteAlvo = procurar(ingrediente.getNome());
+			this.remover(ingredienteAlvo.getNome());
+			this.inserir(ingrediente);
+		}
 	}
 	
-	public void remover(String nome) {
+	public void remover(String nome) throws IngredienteNaoEncontradoException {
 		if (this.ingrediente != null) {
 			if (this.ingrediente.getNome().contentEquals(nome)) {
 				this.ingrediente = this.proximo.ingrediente;
@@ -35,7 +40,7 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 				this.proximo.remover(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			throw new IngredienteNaoEncontradoException();
 		}
 	}
 	
@@ -47,7 +52,7 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 				return proximo.procurar(nome);
 			}
 		} else {
-			throw new IngredienteNaoEncontradoException;
+			throw new IngredienteNaoEncontradoException();
 		}
 	}
 	
@@ -59,7 +64,7 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 				return proximo.existe(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			return false;
 		}
 	}
 }
