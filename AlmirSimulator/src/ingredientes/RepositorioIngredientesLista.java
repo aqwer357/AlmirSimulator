@@ -1,6 +1,6 @@
 package ingredientes;
 
-public class RepositorioIngredientesLista {
+public class RepositorioIngredientesLista implements RepositorioIngredientes {
 	private Ingrediente ingrediente;
 	private RepositorioIngredientesLista proximo;
 	
@@ -17,7 +17,12 @@ public class RepositorioIngredientesLista {
 			proximo.inserir(ingrediente);
 		}
 	}
+	
 	public void atualizar(Ingrediente ingrediente) {
+		Ingrediente ingredienteAlvo;
+		ingredienteAlvo = procurar(ingrediente.getNome());
+		this.remover(ingredienteAlvo.getNome());
+		this.inserir(ingrediente);
 		
 	}
 	
@@ -34,7 +39,7 @@ public class RepositorioIngredientesLista {
 		}
 	}
 	
-	public Ingrediente procurar(String nome) {
+	public Ingrediente procurar(String nome) throws IngredienteNaoEncontradoException {
 		if (this.ingrediente != null) {
 			if (this.ingrediente.getNome().contentEquals(nome)) {
 				return this.ingrediente;
@@ -42,7 +47,7 @@ public class RepositorioIngredientesLista {
 				return proximo.procurar(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			throw new IngredienteNaoEncontradoException;
 		}
 	}
 	
@@ -51,7 +56,7 @@ public class RepositorioIngredientesLista {
 			if (this.ingrediente.getNome().contentEquals(nome)) {
 				return true;
 			} else {
-				return existe(nome);
+				return proximo.existe(nome);
 			}
 		} else {
 			throw new RuntimeException("Erro");
