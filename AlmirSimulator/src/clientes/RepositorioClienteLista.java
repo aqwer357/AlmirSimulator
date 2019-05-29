@@ -19,7 +19,7 @@ public class RepositorioClienteLista implements RepositorioCliente{
         }
     }
     
-    public boolean existe(String nome) {
+    public boolean existe(String nome) throws ClienteNaoExistenteException {
 		if (this.cliente != null) {
 			if (this.cliente.getNome().contentEquals(nome)) {
 				return true;
@@ -27,7 +27,7 @@ public class RepositorioClienteLista implements RepositorioCliente{
 				return proximo.existe(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			throw new ClienteNaoExistenteException();
 		}
 	}
     
