@@ -11,7 +11,7 @@ public class RepositorioClienteArray implements RepositorioCliente {
 	
 	public void inserir(Cliente cliente) throws LimiteAtingidoException {
 		
-		if(this.indice < this.arrayCliente.length) { // verificando se ainda há espaço livre no array
+		if(this.indice < this.arrayCliente.length) {
 			this.arrayCliente[indice] = cliente;
 			indice++;
 		}
@@ -23,6 +23,22 @@ public class RepositorioClienteArray implements RepositorioCliente {
 		
 	}
 	
+	public void remover(String nome) throws ClienteNaoEncontradoException{
+		
+	}
+
+	public boolean existe(String nome) throws ClienteNaoEncontradoException {
+		return false;
+	}
+
+	public Cliente procurar(String nome) {
+		return null;
+	}
+
+	public void atualizar(Cliente cliente) {
+		
+		
+	}
 	
 	
 	
