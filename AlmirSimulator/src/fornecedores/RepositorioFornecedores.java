@@ -4,6 +4,7 @@ public interface RepositorioFornecedores {
 	
 	void inserir(Fornecedor fornecedor);
 	
+	
 	void atualizar (Fornecedor fornecedor) throws FornecedorNaoEncontradoException;
 		
 	
@@ -16,4 +17,4 @@ public interface RepositorioFornecedores {
 	Fornecedor procurar(int identificador) throws FornecedorNaoEncontradoException;
 		
 	}
-}
+
