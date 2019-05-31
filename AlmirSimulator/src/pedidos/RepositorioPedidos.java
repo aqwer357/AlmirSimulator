@@ -1,10 +1,17 @@
 package pedidos;
 
+import clientes.Cliente;
+
 public interface RepositorioPedidos {
 
-    void inserir(Pedido pedido) throws PedidoNaoExistenteException;
-    Pedido procurar(int codigo) throws PedidoNaoEncontradoException; //getPedido
-    void atualizar(int codigo, String refeicao) throws PedidoNaoEncontradoException;	//setPedido
-    void remover(int codigo);
-    
+	public void inserir(Pedido pedido) throws PedidoNaoExistenteException, LimiteAtingidoException;
+
+	public String procurar(Cliente cliente) throws PedidoNaoEncontradoException; // getPedido
+
+	public void atualizar(Cliente cliente, String refeicao) throws PedidoNaoEncontradoException; // setPedido
+
+	public void remover(Cliente cliente) throws PedidoNaoEncontradoException;
+
+	public boolean existe(Cliente Cliente);
+
 }

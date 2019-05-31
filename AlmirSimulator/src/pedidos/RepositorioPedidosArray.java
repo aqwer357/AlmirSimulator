@@ -1,53 +1,72 @@
 package pedidos;
+
 import clientes.Cliente;
 
 public class RepositorioPedidosArray implements RepositorioPedidos {
-    private Pedido[] pedidos;
-    private int codigo;
+	private Pedido[] arrayPedidos;
+	private int codigo;
 
-    public RepositorioPedidosArray(){
-        pedidos = new Pedido[1000];
-        codigo = 0;
-    }
+	public RepositorioPedidosArray() {
 
-    public void inserir(Pedido pedido) {
-        pedidos[codigo] = pedido;
-        codigo++;
-    }
-
-    public String procurar(Cliente cliente) throws PedidoNaoEncontradoException {
-        for(int i = 0; i < 1000; i++) {
-        	if(pedidos[i] == null) {
-        		throw new PedidoNaoEncontradoException();
-        	}
-        	else {
-        		if(this.pedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-        			return this.pedidos[i].getPedido();
-        		}
-        	}
-        }
-        throw new PedidoNaoEncontradoException();
-    }
-
-    public void remover(int codigo) throws PedidoNaoEncontradoException {
-
-    }
-
-    public void atualizar(Pedido pedido) throws PedidoNaoEncontradoException {
-
-    }
-
-	@Override
-	public Pedido procurar(String refeicao) throws PedidoNaoEncontradoException {
-		// TODO Auto-generated method stub
-		return null;
+		arrayPedidos = new Pedido[1000];
+		codigo = 0;
 	}
 
-	@Override
-	public void remover(Pedido pedido) {
-		// TODO Auto-generated method stub
-		
+	public void inserir(Pedido pedido) {
+
+		arrayPedidos[codigo] = pedido;
+		codigo++;
 	}
 
+	public String procurar(Cliente cliente) throws PedidoNaoEncontradoException {
+
+		for (int i = 0; i < 1000; i++) {
+			if (arrayPedidos[i] == null) {
+				throw new PedidoNaoEncontradoException();
+
+			} else {
+				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+					return this.arrayPedidos[i].getCliente().getNome() + this.arrayPedidos[i].getPedido();
+				}
+			}
+		}
+		throw new PedidoNaoEncontradoException();
+	}
+
+	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
+
+		for (int i = 0; i < 1000; i++) {
+			if (arrayPedidos[i] == null) {
+				throw new PedidoNaoEncontradoException();
+			} else {
+				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+					arrayPedidos[i] = null;
+				}
+			}
+		}
+	}
+
+	public void atualizar(Cliente cliente, String novoPedido) throws PedidoNaoEncontradoException {
+
+		for (int i = 0; i < 1000; i++) {
+			if (arrayPedidos[i] == null) {
+				throw new PedidoNaoEncontradoException();
+			} else {
+				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+					this.arrayPedidos[i].setPedido(novoPedido);
+				}
+			}
+		}
+	}
+
+	public boolean existe(Cliente cliente) {
+
+		boolean achou = false;
+		for (int i = 0; i < 1000 && !achou; i++) {
+			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+				achou = true;
+			}
+		}
+		return achou;
+	}
 }
-
