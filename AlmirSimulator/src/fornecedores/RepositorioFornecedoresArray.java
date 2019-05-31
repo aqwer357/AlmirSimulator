@@ -16,7 +16,8 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 		if (this.indice < this.fornecedores.length) {
 		this.fornecedores[indice] = fornecedor;
 		this.indice= this.indice +1;		
-	}else {
+	
+		}else {
 		Fornecedor[] aux = new Fornecedor[2*fornecedores.length];
 		
 		for(int i =0; i < fornecedores.length;i++) {
