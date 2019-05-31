@@ -6,8 +6,8 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 	private Pedido[] arrayPedidos;
 	private int codigo;
 
-	public RepositorioPedidosArray() {
-
+	public RepositorioPedidosArray() {	
+		
 		arrayPedidos = new Pedido[1000];
 		codigo = 0;
 	}
@@ -32,7 +32,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 		throw new PedidoNaoEncontradoException();
 	}
-
+	
 	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
 
 		for (int i = 0; i < 1000; i++) {

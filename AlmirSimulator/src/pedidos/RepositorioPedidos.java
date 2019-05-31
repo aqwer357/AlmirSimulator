@@ -13,5 +13,5 @@ public interface RepositorioPedidos {
 	public void remover(Cliente cliente) throws PedidoNaoEncontradoException;
 
 	public boolean existe(Cliente Cliente);
-
+	
 }

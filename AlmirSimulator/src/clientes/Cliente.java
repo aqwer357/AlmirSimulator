@@ -23,5 +23,4 @@ public class Cliente {
 	public int getCodigoCliente() {
 		return this.codigoCliente;
 	}
-
 }

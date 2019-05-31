@@ -22,4 +22,5 @@ public class Pedido {
 	public Cliente getCliente() {
 		return this.cliente;
 	}
+
 }

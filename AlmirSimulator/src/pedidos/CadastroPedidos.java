@@ -10,5 +10,4 @@ public class CadastroPedidos {
 			pedido = new RepositorioPedidosLista();
 		}
 	}
-
 }
