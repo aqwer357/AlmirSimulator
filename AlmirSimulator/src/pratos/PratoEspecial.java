@@ -4,15 +4,15 @@ import ingredientes.Ingrediente;
 
 public class PratoEspecial extends Prato {
 
-
-	public PratoEspecial(int codigoPrato, Ingrediente[] ingredientes) {
-		super(codigoPrato, ingredientes);
-		// TODO Auto-generated constructor stub
+	//PratoEspecial permite ao cliente inserir ingredientes Premium no Prato.
+	
+	public PratoEspecial(int codigo, Ingrediente[] ingredientes) {
+		super(codigo, ingredientes);
 	}
 
-	String getInformacoes() {
+	void inserirIngrediente(Ingrediente ingrediente) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 }

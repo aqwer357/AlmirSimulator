@@ -20,9 +20,13 @@ public class RepositorioPratosLista implements RepositorioPratos {
 			proximo.inserir(prato);
 	}
 
-	public void atualizar(Prato prato) {
-		// TODO Auto-generated method stub
-		
+	public void atualizar(Prato pratoNovo) throws PNEException {
+		if (pratoNovo.getCodigo() == this.prato.getCodigo())
+			this.prato = pratoNovo;
+		else if (this.proximo.prato == null)
+			throw new PNEException();
+		else
+			this.proximo.atualizar(pratoNovo);
 	}
 
 	public void remover(int codigoPrato) throws PNEException {
@@ -35,9 +39,13 @@ public class RepositorioPratosLista implements RepositorioPratos {
 			this.proximo.remover(codigoPrato);
 	}
 
-	public Prato procurar(int codigoPrato) {
+	public Prato procurar(int codigoPrato) throws PNEException {
 		if (this.prato.getCodigo() == codigoPrato)
 			return this.prato;
+		else if (this.proximo.prato == null)
+			throw new PNEException();
+		else
+			return this.proximo.procurar(codigoPrato);
 		}
 
 	public boolean existe(int codigoPrato) {

@@ -1,46 +1,36 @@
 package pratos;
 
-import ingredientes.Ingrediente;
+import ingredientes.*;
 
 public abstract class Prato {
-	private int codigoPrato;
-	private Ingrediente[] ingredientes;
+	private int codigo;
+	private RepositorioIngredientes ingredientes;
 
-	public Prato(int codigoPrato, Ingrediente[] ingredientes) {
-		this.codigoPrato = codigoPrato;
-		this.setIngredientes(ingredientes);
-	}
-
-	public Prato(String nome) {
-		// TODO Auto-generated constructor stub
+	public Prato(int codigoPrato) {
+		this.codigo = codigoPrato;
+		this.ingredientes = new RepositorioIngredientesLista();
 	}
 
 	public int getCodigo() {
-		return codigoPrato;
+		return codigo;
 	}
 
 	protected void setCodigo(int codigoPrato) {
-		this.codigoPrato = codigoPrato;
+		this.codigo = codigoPrato;
 	}
 
-	public Ingrediente[] getIngredientes() {
+	public RepositorioIngredientes getIngredientes() {
 		return ingredientes;
 	}
 	
 	public String printIngredientes() {
-		String output = "";
-		
-		for (int i = 0; i < ingredientes.length; i++) {
-			output += ingredientes[i].getNome() + "\n";
-		}
-		
-		return output;
+		// TODO - Charles precisa criar um .toString();
 	}
 	
-	protected void setIngredientes(Ingrediente[] ingredientes) {
+	abstract void inserirIngrediente(Ingrediente ingrediente) throws IIException;
+
+	protected void setIngredientes(RepositorioIngredientes ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-	
-	abstract String getInformacoes();
 	
 }
