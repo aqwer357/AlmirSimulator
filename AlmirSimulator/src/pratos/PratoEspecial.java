@@ -4,10 +4,10 @@ import ingredientes.Ingrediente;
 
 public class PratoEspecial extends Prato {
 
-	//PratoEspecial permite ao cliente inserir ingredientes Premium no Prato.
+	//PratoEspecial permite ao cliente inserir ingredientes especias no Prato.
 	
 	public PratoEspecial(int codigo, Ingrediente[] ingredientes) {
-		super(codigo, ingredientes);
+		super(codigo);
 	}
 
 	void inserirIngrediente(Ingrediente ingrediente) {

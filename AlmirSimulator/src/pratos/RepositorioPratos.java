@@ -11,4 +11,6 @@ public interface RepositorioPratos {
 	
 	boolean existe(int codigoPrato);
 	
+	int getCodigo();
+	
 }

@@ -23,10 +23,6 @@ public abstract class Prato {
 		return ingredientes;
 	}
 	
-	public String printIngredientes() {
-		// TODO - Charles precisa criar um .toString();
-	}
-	
 	abstract void inserirIngrediente(Ingrediente ingrediente) throws IIException;
 
 	protected void setIngredientes(RepositorioIngredientes ingredientes) {

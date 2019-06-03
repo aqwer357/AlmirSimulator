@@ -4,16 +4,19 @@ public class RepositorioPratosLista implements RepositorioPratos {
 
 	private Prato prato;
 	private RepositorioPratosLista proximo;
+	private int codigo; //sera o identificador de pratos, cada prato tera um codigo que incrementa o anterior
 	
 	public RepositorioPratosLista() {
 		this.prato = null;
 		this.proximo = null;
+		this.codigo = 0;
 	}
 
 	public void inserir(Prato prato) throws PJFIException {
 		if (this.prato == null) {
 			this.prato = prato;
 			this.proximo = new RepositorioPratosLista();
+			codigo++;
 		} else if (this.prato == prato)
 			throw new PJFIException();
 		else
@@ -21,9 +24,9 @@ public class RepositorioPratosLista implements RepositorioPratos {
 	}
 
 	public void atualizar(Prato pratoNovo) throws PNEException {
-		if (pratoNovo.getCodigo() == this.prato.getCodigo())
+		if (pratoNovo.getCodigo() == this.prato.getCodigo()) {
 			this.prato = pratoNovo;
-		else if (this.proximo.prato == null)
+		} else if (this.proximo.prato == null)
 			throw new PNEException();
 		else
 			this.proximo.atualizar(pratoNovo);
@@ -57,4 +60,7 @@ public class RepositorioPratosLista implements RepositorioPratos {
 			return this.proximo.existe(codigoPrato);
 	}
 	
+	public int getCodigo(){
+		return this.codigo;
+	}
 }

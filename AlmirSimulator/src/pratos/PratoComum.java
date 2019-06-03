@@ -10,9 +10,9 @@ public class PratoComum extends Prato {
 
 	public void inserirIngrediente(Ingrediente ingrediente) throws IIException {
 		// TODO Auto-generated method stub
-		// Se o ingrediente for premium, nao pode ser inserido.
+		// Se o ingrediente for especial, nao pode ser inserido.
 		
-		if (ingrediente.premium)
+		if (ingrediente.especial)
 			throw new IIException();
 		else
 			ingredientes.inserir(ingrediente);
