@@ -51,7 +51,10 @@ public boolean existe(int identificador) {
 public void remover(int identificador) 
 		throws FornecedorNaoEncontradoException {
 
-if(this.existe(identificador) == true) {
+if(this.existe(identificador)) {
+	
+	this.indice = this.indice - 1;
+	
 	for(int i=0; i<fornecedores.length; i++) {
 
 		if(fornecedores[i].getIdentificador() == identificador) { 	
@@ -81,7 +84,7 @@ if(this.existe(identificador) == true) {
 public void atualizar(Fornecedor fornecedor) 
 		throws FornecedorNaoEncontradoException{
 	
-	if(this.existe(fornecedor.getIdentificador()) == true) {
+	if(this.existe(fornecedor.getIdentificador())) {
 		
 		for(int i=0;i<fornecedores.length;i++) {
 			
@@ -100,7 +103,7 @@ public void atualizar(Fornecedor fornecedor)
 public Fornecedor procurar(int identificador) 
 		throws FornecedorNaoEncontradoException{
 
-	if(this.existe(identificador) == true) {
+	if(this.existe(identificador)) {
 		
 	Fornecedor retorno = null;
 		
