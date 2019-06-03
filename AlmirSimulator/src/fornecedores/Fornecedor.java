@@ -8,8 +8,8 @@ public class Fornecedor {
 	
 	public Fornecedor(String nome, RepositorioIngredientes ingredientes, int identificador, boolean tipo) {
 		this.nome = nome;
-		if(this.tipo == false) {
-			this.ingredientes = new RepositorioIngredientesArray();
+		if(tipo) {
+	//		this.ingredientes = new RepositorioIngredientesArray();
 		}
 		else {
 			this.ingredientes = new RepositorioIngredientesLista();
