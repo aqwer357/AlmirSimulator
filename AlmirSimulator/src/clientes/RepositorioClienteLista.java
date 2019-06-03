@@ -19,7 +19,7 @@ public class RepositorioClienteLista implements RepositorioCliente{
         }
     }
     
-    public boolean existe(String nome) throws ClienteNaoEncontradoException {
+    public boolean existe(String nome){
 		if (this.cliente != null) {
 			if (this.cliente.getNome().contentEquals(nome)) {
 				return true;
@@ -27,11 +27,11 @@ public class RepositorioClienteLista implements RepositorioCliente{
 				return proximo.existe(nome);
 			}
 		} else {
-			throw new ClienteNaoEncontradoException();
+			return false;
 		}
 	}
     
-    public void remover(String nome) {
+    public void remover(String nome) throws ClienteNaoEncontradoException{
 		if (this.cliente != null) {
 			if (this.cliente.getNome().contentEquals(nome)) {
 				this.cliente = this.proximo.cliente;
@@ -40,11 +40,11 @@ public class RepositorioClienteLista implements RepositorioCliente{
 				this.proximo.remover(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			throw new ClienteNaoEncontradoException();
 		}
 	}
     
-    public Cliente procurar(String nome) {
+    public Cliente procurar(String nome) throws ClienteNaoEncontradoException{
 		if (this.cliente != null) {
 			if (this.cliente.getNome().contentEquals(nome)) {
 				return this.cliente;
@@ -52,16 +52,18 @@ public class RepositorioClienteLista implements RepositorioCliente{
 				return proximo.procurar(nome);
 			}
 		} else {
-			throw new RuntimeException("Erro");
+			throw new ClienteNaoEncontradoException();
 		}
 	}
     
-    public void atualizar(Cliente cliente){
+    public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException{
     	Cliente clienteAlvo;
     	clienteAlvo = procurar(cliente.getNome());
     	this.remover(clienteAlvo.getNome());
     	this.inserir(cliente);
     }
+    
+    
     
     
 }
