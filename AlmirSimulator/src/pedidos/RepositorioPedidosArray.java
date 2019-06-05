@@ -16,12 +16,13 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void inserir(Pedido pedido) {
 		if (codigo == arrayPedidos.length - 1) {
-			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2]; // O tamanho do array aumentará sempre que a
-			for (int i = 0; i < arrayPedidos.length - 1; i++) {             // sua capacidade estiver cheia;
+			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2]; 
+			
+			for (int i = 0; i < arrayPedidos.length - 1; i++) {  //ArrayDinamico;
 				arrayPedidosNew[i] = arrayPedidos[i];
 			}
 
-			arrayPedidos = arrayPedidosNew; // O antigo array recebe o novo array maior;
+			arrayPedidos = arrayPedidosNew; 
 			codigo++;
 			arrayPedidos[codigo] = pedido;
 
@@ -31,54 +32,39 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 	}
 
-	public Pedido procurar(Cliente cliente) throws PedidoNaoEncontradoException {
-
+	public Pedido obterPedido(Cliente cliente) {
 		for (int i = 0; i < arrayPedidos.length - 1; i++) {
-			if (arrayPedidos[i] == null) {
-				throw new PedidoNaoEncontradoException();
-
-			} else {
-
-				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-					return this.arrayPedidos[i];
-				}
+			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+				return this.arrayPedidos[i];
 			}
 		}
-		throw new PedidoNaoEncontradoException();
+		return null;
 	}
 
-	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
+	public void remover(Cliente cliente) {
 
 		for (int i = 0; i < arrayPedidos.length - 1; i++) {
-			if (arrayPedidos[i] == null) { // Se chegar ao null, significa que chegou ao fim dos cadastros ate o
-										   // momento.
-				throw new PedidoNaoEncontradoException();
 
-			} else {
-				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 
-					for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) {// reorganiza o array!
-						this.arrayPedidos[j] = this.arrayPedidos[j + 1];
-					}
-					this.arrayPedidos[arrayPedidos.length] = null; // Ao remover um pedido, claramente a ultima posicao
-																   // do array será nula, haja vista que um pedido foi apagado;
+				for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) {// reorganiza o array!
+					this.arrayPedidos[j] = this.arrayPedidos[j + 1];
 				}
+				this.arrayPedidos[arrayPedidos.length] = null; // Ao remover um pedido, claramente a ultima posicao
+				// do array será nula, haja vista que um pedido foi
+				// apagado;
 			}
 		}
 	}
 
-	public void atualizar(Cliente cliente, Pedido novoPedido) throws PedidoNaoEncontradoException {
+	public void atualizar(Cliente cliente, Pedido novoPedido) {
 		boolean trocaRealizada = false;
 
 		for (int i = 0; i < arrayPedidos.length - 1 && !trocaRealizada; i++) {
-			if (arrayPedidos[i] == null) {
-				throw new PedidoNaoEncontradoException();
 
-			} else {
-				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-					this.arrayPedidos[i] = novoPedido; // Troca o prato pedido pelo cliente;
-					trocaRealizada = true;
-				}
+			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
+				this.arrayPedidos[i] = novoPedido; // Troca o prato pedido pelo cliente;
+				trocaRealizada = true;
 			}
 		}
 	}
