@@ -3,29 +3,47 @@ package ingredientes;
 public class RepositorioIngredientesArray {
 	private Ingrediente[] ingredientes = new Ingrediente[1000];
 	private int indice;
-	
+
 	public RepositorioIngredientesArray() {
 		this.indice = 0;
 	}
-	
-	public void inserir(Ingrediente ingrediente) throws IngredienteJaExisteException  {
+
+	public void inserir(Ingrediente ingrediente) {
+		this.ingredientes[indice] = ingrediente;
+		this.indice++;
+	}
+
+	public void atualizar(Ingrediente ingrediente) throws IngredienteNaoEncontradoException {
+		Ingrediente ingredienteAlvo;
 		if (existe(ingrediente.getNome())) {
-			throw new IngredienteJaExisteException();
+			ingredienteAlvo = procurar(ingrediente.getNome());
+			this.remover(ingredienteAlvo.getNome());
+			this.inserir(ingrediente);
 		} else {
-			this.ingredientes[indice] = ingrediente;
-			indice++;
-			
+			throw new IngredienteNaoEncontradoException();
 		}
 	}
-	
-	public void atualizar() throws IngredienteNaoEncontradoException, IngredienteJaExisteException {
-		
-	}
-	
+
 	public void remover(String nome) throws IngredienteNaoEncontradoException {
-		
+		Ingrediente aux;
+		for (int i = 0; i < 1000; i++) {
+			if (i < 999) {
+				if (nome.contentEquals(ingredientes[i].getNome()) && ingredientes[i + 1] != null) {
+					aux = ingredientes[i + 1];
+					this.remover(ingredientes[i + 1].getNome());
+					this.ingredientes[i] = aux;
+				} else if (nome.contentEquals(ingredientes[i].getNome())) {
+					this.ingredientes[i] = null;
+					this.indice--;
+					i = 1000;
+				}
+			} else {
+				this.indice--;
+				this.ingredientes[i] = null;
+			}
+		}
 	}
-	
+
 	public Ingrediente procurar(String nome) throws IngredienteNaoEncontradoException {
 		int aux = 0;
 		for (int i = 0; i < 1000; i++) {
@@ -40,7 +58,7 @@ public class RepositorioIngredientesArray {
 		}
 		return this.ingredientes[aux];
 	}
-	
+
 	public boolean existe(String nome) {
 		boolean existe = false;
 		for (int i = 0; i < 1000; i++) {
