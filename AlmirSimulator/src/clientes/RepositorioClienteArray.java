@@ -68,7 +68,7 @@ public class RepositorioClienteArray implements RepositorioCliente {
 		for(int i = 0 ; i < this.indice ; i++) {
 			if(this.arrayCliente[i].getNome().equals(nome)) {
 				indice_retorno = i;
-				boolean encontrou_cliente = true;
+				encontrou_cliente = true;
 			}
 		}
 		if(encontrou_cliente) {
