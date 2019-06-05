@@ -8,13 +8,13 @@ public class CadastroPedidos {
 		this.repositorio = repositorio;
 	}
 	
-	public void inserir(Pedido pedido) {
+	public void cadastrarPedido(Pedido pedido) {
 		this.repositorio.cadastrarPedido(pedido);
 		
 	}
 
-	public void remover(Cliente cliente) throws ClienteNaoEncontradoException {
-		if (!repositorio.existe(cliente)) {
+	public void removerPedido(Cliente cliente) throws ClienteNaoEncontradoException {
+		if (!repositorio.existePedido(cliente)) {
 			throw new ClienteNaoEncontradoException();
 		
 		} else {
@@ -23,7 +23,7 @@ public class CadastroPedidos {
 	}
 
 	public Pedido obterPedido(Cliente cliente) throws ClienteNaoEncontradoException {
-		if (!repositorio.existe(cliente)) {
+		if (!repositorio.existePedido(cliente)) {
 			throw new ClienteNaoEncontradoException();
 		
 		}
@@ -31,7 +31,7 @@ public class CadastroPedidos {
 	}
 
 	public void atualizarPedido(Cliente cliente, Pedido novoPedido) throws ClienteNaoEncontradoException {
-		if (!repositorio.existe(cliente)) {
+		if (!repositorio.existePedido(cliente)) {
 			throw new ClienteNaoEncontradoException();
 		
 		} else {
@@ -39,7 +39,7 @@ public class CadastroPedidos {
 		}
 	}
 
-	public boolean existe(Cliente cliente) {
-		return this.repositorio.existe(cliente);
+	public boolean existePedido(Cliente cliente) {
+		return this.repositorio.existePedido(cliente);
 	}
 }
