@@ -1,4 +1,5 @@
 package pedidos;
+
 import clientes.Cliente;
 
 public class CadastroPedidos {
@@ -11,12 +12,17 @@ public class CadastroPedidos {
 			this.repositorio = new RepositorioPedidosArray();
 		}
 	}
-	public void inserir(Pedido pedido) throws LimiteAtingidoException{
-		try {
-			this.repositorio.inserir(pedido);
-		
-		}catch(LimiteAtingidoException e) {
-			throw e;
+
+	public void inserir(Pedido pedido) {
+		this.repositorio.inserir(pedido);
+
+	}	
+	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
+		if(!repositorio.existe(cliente)){
+			throw new PedidoNaoEncontradoException();
 		}
+		else {
+			repositorio.remover(cliente);
+		}		
 	}
 }

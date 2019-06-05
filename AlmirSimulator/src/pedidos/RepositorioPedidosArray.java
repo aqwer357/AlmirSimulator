@@ -1,5 +1,7 @@
 package pedidos;
 
+import java.lang.reflect.Array;
+
 import clientes.Cliente;
 
 public class RepositorioPedidosArray implements RepositorioPedidos {
@@ -12,23 +14,31 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		codigo = 0;
 	}
 
-	public void inserir(Pedido pedido) throws LimiteAtingidoException {
-		if(codigo < 999) {
-			arrayPedidos[codigo] = pedido;
+	public void inserir(Pedido pedido) {
+		if (codigo == arrayPedidos.length - 1) {
+			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2]; // O tamanho do array aumentará sempre que a
+			for (int i = 0; i < arrayPedidos.length - 1; i++) {             // sua capacidade estiver cheia;
+				arrayPedidosNew[i] = arrayPedidos[i];
+			}
+
+			arrayPedidos = arrayPedidosNew; // O antigo array recebe o novo array maior;
 			codigo++;
-		}
-		else {
-			throw new LimiteAtingidoException();
+			arrayPedidos[codigo] = pedido;
+
+		} else {
+			codigo++;
+			arrayPedidos[codigo] = pedido;
 		}
 	}
 
 	public Pedido procurar(Cliente cliente) throws PedidoNaoEncontradoException {
 
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < arrayPedidos.length - 1; i++) {
 			if (arrayPedidos[i] == null) {
 				throw new PedidoNaoEncontradoException();
 
 			} else {
+
 				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 					return this.arrayPedidos[i];
 				}
@@ -39,16 +49,19 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
 
-		for (int i = 0; i < 1000; i++) {
-			if (arrayPedidos[i] == null) {
+		for (int i = 0; i < arrayPedidos.length - 1; i++) {
+			if (arrayPedidos[i] == null) { // Se chegar ao null, significa que chegou ao fim dos cadastros ate o
+										   // momento.
 				throw new PedidoNaoEncontradoException();
 
 			} else {
 				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-					for (int j = cliente.getCodigoCliente(); j < 999; j++) {// reorganiza o array!						
+
+					for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) {// reorganiza o array!
 						this.arrayPedidos[j] = this.arrayPedidos[j + 1];
 					}
-					this.arrayPedidos[999] = null;						
+					this.arrayPedidos[arrayPedidos.length] = null; // Ao remover um pedido, claramente a ultima posicao
+																   // do array será nula, haja vista que um pedido foi apagado;
 				}
 			}
 		}
@@ -56,13 +69,14 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void atualizar(Cliente cliente, Pedido novoPedido) throws PedidoNaoEncontradoException {
 		boolean trocaRealizada = false;
-		for (int i = 0; i < 1000 && !trocaRealizada; i++) {
+
+		for (int i = 0; i < arrayPedidos.length - 1 && !trocaRealizada; i++) {
 			if (arrayPedidos[i] == null) {
 				throw new PedidoNaoEncontradoException();
 
 			} else {
 				if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-					this.arrayPedidos[i] = novoPedido;
+					this.arrayPedidos[i] = novoPedido; // Troca o prato pedido pelo cliente;
 					trocaRealizada = true;
 				}
 			}
@@ -72,7 +86,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 	public boolean existe(Cliente cliente) {
 		boolean achou = false;
 
-		for (int i = 0; i < 1000 && !achou; i++) {
+		for (int i = 0; i < arrayPedidos.length - 1 && !achou; i++) {
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 				achou = true;
 			}

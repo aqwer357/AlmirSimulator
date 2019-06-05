@@ -4,7 +4,7 @@ import clientes.Cliente;
 
 public interface RepositorioPedidos {
 
-	public void inserir(Pedido pedido) throws LimiteAtingidoException;
+	public void inserir(Pedido pedido);
 
 	public Pedido procurar(Cliente cliente) throws PedidoNaoEncontradoException; // getPedido
 
