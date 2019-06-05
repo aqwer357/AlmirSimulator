@@ -2,11 +2,11 @@ package fornecedores;
 import ingredientes.*;
 public class Fornecedor {
 	private String nome;
-	private RepositorioIngredientes ingredientes;
+	private RepositorioIngredientesArray ingredientes;
 	private int identificador;
 	private boolean tipo;
 	
-	public Fornecedor(String nome, RepositorioIngredientes ingredientes, int identificador) {
+	public Fornecedor(String nome, RepositorioIngredientesArray ingredientes, int identificador) {
 	this.nome = nome;
 	
 	this.ingredientes =  ingredientes;
