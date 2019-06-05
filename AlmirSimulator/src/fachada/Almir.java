@@ -22,35 +22,17 @@ public class Almir {
 	// ignora a ideia de cima, sergio falou q era má ideia
 	// to fazendo como ele recomendou
 	
-	public Almir(RepositorioFornecedores repositorio) {
-		this.fornecedores = new CadastroFornecedores(repositorio);
-	}
-	
-	public Almir(RepositorioIngredientes repositorio) {
-		this.ingredientes = new CadastroIngredientes(repositorio);
-	}
-	
-	public Almir(RepositorioPedidos repositorio) {
-		this.pedidos = new CadastroPedidos(repositorio);
-	}
-	
-	public Almir(RepositorioPratos repositorio) {
-		this.pratos = new CadastroPratos(repositorio);
+	public Almir(RepositorioFornecedores fornecedores, RepositorioIngredientes ingredientes, RepositorioPedidos pedidos, RepositorioPratos pratos) {
+		this.fornecedores = new CadastroFornecedores(fornecedores);
+		this.ingredientes = new CadastroIngredientes(ingredientes);
+		this.pedidos = new CadastroPedidos(pedidos);
+		this.pratos = new CadastroPratos(pratos);
 	}
 	
 	//fornecedor
 	
-	public void cadastrarFornecedor(Fornecedor fornecedor) 
-			throws FornecedorJaCadastradoException {
-		
-		if(this.fornecedores.existe(fornecedor.getIdentificador())) {
-			FornecedorJaCadastradoException e;
-			e = new FornecedorJaCadastradoException();
-			throw e;
-			
-		}else {
-			this.fornecedores.cadastrar(fornecedor);
-		}
+	public void cadastrarFornecedor(Fornecedor fornecedor) throws FornecedorJaCadastradoException {
+		this.fornecedores.cadastrar(fornecedor);
 	}
 	
 	public void remover(int identificador) throws FornecedorNaoEncontradoException{
