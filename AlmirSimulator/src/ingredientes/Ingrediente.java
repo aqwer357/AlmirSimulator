@@ -2,17 +2,22 @@ package ingredientes;
 
 public class Ingrediente {
 	private String nome;
-	private int qtd;
+	private boolean existe;
+	private boolean tipo;
 	
-	Ingrediente(String nome, int qtd) {
+	Ingrediente(String nome, boolean existe, boolean tipo) {
 		this.nome = nome;
-		this.qtd = qtd;
+		this.existe = existe;
+		this.tipo = tipo;
 	}
 	public String getNome() {
 		return this.nome;
 	}
-	public int getQtd() {
-		return this.qtd;
+	public boolean getExiste() {
+		return this.existe;
+	}
+	public boolean getTipo() {
+		return this.tipo;
 	}
 }
 
