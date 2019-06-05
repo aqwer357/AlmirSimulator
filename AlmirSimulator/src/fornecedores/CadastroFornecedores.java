@@ -3,13 +3,12 @@ package fornecedores;
 public class CadastroFornecedores {
 	private RepositorioFornecedores repositorio;
 	
-	public CadastroFornecedores (boolean tipo) {
-		if(tipo) {
-			repositorio = new RepositorioFornecedoresLista();
-		}else {
-			repositorio = new RepositorioFornecedoresArray();
-		}
+	public CadastroFornecedores (RepositorioFornecedores repositorio) {
+		
+	this.repositorio = repositorio;
+	
 	}
+	
 	public void cadastrar(Fornecedor fornecedor) throws FornecedorJaCadastradoException {
 		if(this.repositorio.existe(fornecedor.getIdentificador())) {
 			FornecedorJaCadastradoException e;
