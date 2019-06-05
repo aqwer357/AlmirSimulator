@@ -18,7 +18,9 @@ public class Almir {
 	private CadastroPedidos pedidos;
 	private CadastroPratos pratos;
 	
-	// o booleano tipo decide se � lista ou array
+	// o booleano tipo decide se é lista ou array
+	// ignora a ideia de cima, sergio falou q era má ideia
+	// to fazendo como ele recomendou
 	
 	public Almir(RepositorioFornecedores repositorio) {
 		this.fornecedores = new CadastroFornecedores(repositorio);
