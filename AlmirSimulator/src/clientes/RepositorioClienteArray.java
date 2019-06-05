@@ -27,7 +27,7 @@ public class RepositorioClienteArray implements RepositorioCliente {
 			System.arraycopy(arrayCliente, index + 1, this.arrayCliente, index, this.arrayCliente.length -1 - index);
 		}
 		this.arrayCliente[this.arrayCliente.length - 1] = null;
-		this.indice = this.indice - 1;
+		this.indice--;
 	}
 
 	public boolean existe(String nome){
