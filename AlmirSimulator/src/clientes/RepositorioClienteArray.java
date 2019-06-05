@@ -16,32 +16,18 @@ public class RepositorioClienteArray implements RepositorioCliente {
 			indice++;
 		}
 		else {
-			LimiteAtingidoException exceção;
-			exceção = new LimiteAtingidoException();
-			throw exceção;
+			throw new LimiteAtingidoException();
 		}
 		
 	}
 	
 	public void remover(String nome) throws ClienteNaoEncontradoException{
-		boolean exists = false;
-		int index = -1;
-		for(int i = 0 ; i < this.arrayCliente.length ; i++) {
-			if(this.arrayCliente[i].getNome().equals(nome)) {
-				index = i;
-				exists = true;
-			}
+		int index = this.getIndice(nome);
+		if(this.arrayCliente.length -1 >= index) { // Reorganizando os clientes no array.
+			System.arraycopy(arrayCliente, index + 1, this.arrayCliente, index, this.arrayCliente.length -1 - index);
 		}
-		if(this.arrayCliente.length -1 >= index) {
-			System.arraycopy(arrayCliente, index + 1, this.arrayCliente,index, this.arrayCliente.length -1 - index);
-		}
-		this.arrayCliente[this.arrayCliente.length-1] = null;
+		this.arrayCliente[this.arrayCliente.length - 1] = null;
 		this.indice = this.indice - 1;
-		
-		if(!exists) {
-			throw new ClienteNaoEncontradoException();
-		}
-		
 	}
 
 	public boolean existe(String nome){
@@ -71,10 +57,25 @@ public class RepositorioClienteArray implements RepositorioCliente {
 	}
 
 	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
-		for(int i = 0 ; i < this.arrayCliente.length ; i++) {
-			if(this.arrayCliente[i] == cliente) {
-				int index = i;
+		int index = this.getIndice(cliente.getNome());
+		arrayCliente[index] = cliente;
+	}
+	
+	// m�todo auxiliar que retorna o indice de um determinado cliente no array. Esse m�todo existe apenas para tornar o c�digo mais legivel e claro.
+	private int  getIndice(String nome) throws ClienteNaoEncontradoException{ 
+		int indice_retorno = 0;
+		boolean encontrou_cliente = false;
+		for(int i = 0 ; i < this.indice ; i++) {
+			if(this.arrayCliente[i].getNome().equals(nome)) {
+				indice_retorno = i;
+				boolean encontrou_cliente = true;
 			}
+		}
+		if(encontrou_cliente) {
+			return indice_retorno;
+		}
+		else {
+			throw new ClienteNaoEncontradoException();
 		}
 		
 	}
