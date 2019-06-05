@@ -6,15 +6,12 @@ public class Fornecedor {
 	private int identificador;
 	private boolean tipo;
 	
-	public Fornecedor(String nome, RepositorioIngredientes ingredientes, int identificador, boolean tipo) {
-		this.nome = nome;
-		if(tipo) {
-	//		this.ingredientes = new RepositorioIngredientesArray();
-		}
-		else {
-			this.ingredientes = new RepositorioIngredientesLista();
-		}
-		this.identificador = identificador;
+	public Fornecedor(String nome, RepositorioIngredientes ingredientes, int identificador) {
+	this.nome = nome;
+	
+	this.ingredientes =  ingredientes;
+	
+	this.identificador = identificador;
 	}
 	
 	public void setNome(String nome) {
