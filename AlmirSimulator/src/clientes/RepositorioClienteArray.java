@@ -31,7 +31,7 @@ public class RepositorioClienteArray implements RepositorioCliente {
 	}
 
 	public boolean existe(String nome){
-		for(int i = 0 ; i < this.arrayCliente.length ; i++) {
+		for(int i = 0 ; i < this.indice ; i++) {
 			if(this.arrayCliente[i].getNome().equals(nome)) {
 				return true;
 			}
@@ -42,7 +42,7 @@ public class RepositorioClienteArray implements RepositorioCliente {
 	public Cliente procurar(String nome) throws ClienteNaoEncontradoException{
 		Cliente retorno = null;
 		boolean encontrou = false;
-		for(int i = 0 ; i< arrayCliente.length && !encontrou; i ++) {
+		for(int i = 0 ; i < this.indice && !encontrou; i ++) {
 			if(this.arrayCliente[i].getNome().equals(nome)) {
 				retorno = this.arrayCliente[i];
 				encontrou = true;
