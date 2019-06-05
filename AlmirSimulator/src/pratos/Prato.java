@@ -22,11 +22,15 @@ public abstract class Prato {
 	public RepositorioIngredientes getIngredientes() {
 		return ingredientes;
 	}
-	
+
 	abstract void inserirIngrediente(Ingrediente ingrediente) throws IIException;
 
 	protected void setIngredientes(RepositorioIngredientes ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-	
+
 }
+
+//import pedidos.Pedido;
+//inicializar um atributo do tipo pedidos, pois junto ao pedido virá um objeto do tipo cliente com todos os dados necessários referente ao prato.
+//by monitor.
