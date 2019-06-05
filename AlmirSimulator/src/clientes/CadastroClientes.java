@@ -1,9 +1,9 @@
 package clientes;
 
-public class CadastroCliente {
+public class CadastroClientes {
 	private RepositorioCliente repositorio;
 	
-	public CadastroCliente(RepositorioCliente repositorio) {
+	public CadastroClientes(RepositorioCliente repositorio) {
 		
 	this.repositorio = repositorio;
 	

@@ -1,17 +1,16 @@
 package pedidos;
-
-import clientes.Cliente;
+import clientes.*;
 
 public interface RepositorioPedidos {
 
-	public void inserir(Pedido pedido);
+	public void cadastrarPedido(Pedido pedido);
 
 	public Pedido obterPedido(Cliente cliente); // getPedido
 
-	public void atualizar(Cliente cliente, Pedido novoPedido); // setPedido
+	public void atualizarPedido(Cliente cliente, Pedido novoPedido); // setPedido
 
-	public void remover(Cliente cliente);
+	public void removerPedido(Cliente cliente);
 
-	public boolean existe(Cliente Cliente);
+	public boolean existePedido(Cliente Cliente);
 
 }

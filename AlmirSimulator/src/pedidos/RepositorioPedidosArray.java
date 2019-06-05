@@ -1,8 +1,5 @@
 package pedidos;
-
-import java.lang.reflect.Array;
-
-import clientes.Cliente;
+import clientes.*;
 
 public class RepositorioPedidosArray implements RepositorioPedidos {
 	private Pedido[] arrayPedidos;
@@ -13,7 +10,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		codigo = 0;
 	}
 
-	public void inserir(Pedido pedido) {
+	public void cadastrarPedido(Pedido pedido) {
 		if (codigo == arrayPedidos.length - 1) {
 			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2];
 
@@ -40,7 +37,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		return null;
 	}
 
-	public void remover(Cliente cliente) {
+	public void removerPedido(Cliente cliente) {
 		for (int i = 0; i < arrayPedidos.length - 1; i++) {
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 				
@@ -53,7 +50,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 	}
 
-	public void atualizar(Cliente cliente, Pedido novoPedido) {
+	public void atualizarPedido(Cliente cliente, Pedido novoPedido) {
 		boolean trocaRealizada = false;
 
 		for (int i = 0; i < arrayPedidos.length - 1 && !trocaRealizada; i++) {
@@ -64,7 +61,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 	}
 
-	public boolean existe(Cliente cliente) {
+	public boolean existePedido(Cliente cliente) {
 		boolean achou = false;
 
 		for (int i = 0; i < arrayPedidos.length - 1 && !achou; i++) {

@@ -1,6 +1,5 @@
 package pedidos;
-
-import clientes.Cliente;
+import clientes.*;
 
 public class RepositorioPedidosLista implements RepositorioPedidos {
 	private Pedido pedido;
@@ -11,13 +10,13 @@ public class RepositorioPedidosLista implements RepositorioPedidos {
 		this.proximo = null;
 	}
 
-	public void inserir(Pedido pedido) {
+	public void cadastrarPedido(Pedido pedido) {
 		if (this.pedido == null) {
 			this.pedido = pedido;
 			this.proximo = new RepositorioPedidosLista();
 
 		} else {
-			this.proximo.inserir(pedido);
+			this.proximo.cadastrarPedido(pedido);
 		}
 	}
 
@@ -30,31 +29,31 @@ public class RepositorioPedidosLista implements RepositorioPedidos {
 		}
 	}
 
-	public void atualizar(Cliente cliente, Pedido novoPedido) {
+	public void atualizarPedido(Cliente cliente, Pedido novoPedido) {
 		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 			this.pedido = novoPedido;
 
 		} else {
-			this.proximo.atualizar(cliente, novoPedido);
+			this.proximo.atualizarPedido(cliente, novoPedido);
 		}
 	}
 
-	public void remover(Cliente cliente) {
+	public void removerPedido(Cliente cliente) {
 		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 			this.pedido = this.proximo.pedido;
 			this.proximo = this.proximo.proximo;
 
 		} else {
-			this.proximo.remover(cliente);
+			this.proximo.removerPedido(cliente);
 		}
 	}
 
-	public boolean existe(Cliente cliente) {
+	public boolean existePedido(Cliente cliente) {
 		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 			return true;
 
 		} else {
-			return this.proximo.existe(cliente);
+			return this.proximo.existePedido(cliente);
 		}
 	}
 }

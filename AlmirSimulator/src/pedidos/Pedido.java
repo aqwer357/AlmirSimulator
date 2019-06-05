@@ -1,6 +1,5 @@
 package pedidos;
-
-import clientes.Cliente;
+import clientes.*;
 
 public class Pedido {
 	private String refeicao;

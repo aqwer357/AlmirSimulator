@@ -1,6 +1,5 @@
 package pedidos;
-
-import clientes.Cliente;
+import clientes.*;
 
 public class CadastroPedidos {
 	private RepositorioPedidos repositorio;
@@ -10,33 +9,33 @@ public class CadastroPedidos {
 	}
 	
 	public void inserir(Pedido pedido) {
-		this.repositorio.inserir(pedido);
-
+		this.repositorio.cadastrarPedido(pedido);
+		
 	}
 
-	public void remover(Cliente cliente) throws PedidoNaoEncontradoException {
+	public void remover(Cliente cliente) throws ClienteNaoEncontradoException {
 		if (!repositorio.existe(cliente)) {
-			throw new PedidoNaoEncontradoException();
+			throw new ClienteNaoEncontradoException();
 		
 		} else {
-			this.repositorio.remover(cliente);
+			this.repositorio.removerPedido(cliente);
 		}
 	}
 
-	public Pedido obterPedido(Cliente cliente) throws PedidoNaoEncontradoException {
+	public Pedido obterPedido(Cliente cliente) throws ClienteNaoEncontradoException {
 		if (!repositorio.existe(cliente)) {
-			throw new PedidoNaoEncontradoException();
+			throw new ClienteNaoEncontradoException();
 		
 		}
 		return this.repositorio.obterPedido(cliente);
 	}
 
-	public void atualizar(Cliente cliente, Pedido novoPedido) throws PedidoNaoEncontradoException {
+	public void atualizarPedido(Cliente cliente, Pedido novoPedido) throws ClienteNaoEncontradoException {
 		if (!repositorio.existe(cliente)) {
-			throw new PedidoNaoEncontradoException();
+			throw new ClienteNaoEncontradoException();
 		
 		} else {
-			this.repositorio.atualizar(cliente, novoPedido);
+			this.repositorio.atualizarPedido(cliente, novoPedido);
 		}
 	}
 
