@@ -3,7 +3,6 @@ package pedidos;
 import clientes.Cliente;
 
 public class RepositorioPedidosLista implements RepositorioPedidos {
-
 	private Pedido pedido;
 	private RepositorioPedidosLista proximo;
 
