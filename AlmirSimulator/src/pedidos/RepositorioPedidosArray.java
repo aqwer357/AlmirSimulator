@@ -16,13 +16,13 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void inserir(Pedido pedido) {
 		if (codigo == arrayPedidos.length - 1) {
-			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2]; 
-			
-			for (int i = 0; i < arrayPedidos.length - 1; i++) {  //ArrayDinamico;
+			Pedido[] arrayPedidosNew = new Pedido[arrayPedidos.length * 2];
+
+			for (int i = 0; i < arrayPedidos.length - 1; i++) { // ArrayDinamico;
 				arrayPedidosNew[i] = arrayPedidos[i];
 			}
 
-			arrayPedidos = arrayPedidosNew; 
+			arrayPedidos = arrayPedidosNew;
 			codigo++;
 			arrayPedidos[codigo] = pedido;
 
@@ -47,12 +47,11 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 
-				for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) {// reorganiza o array!
+				for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) { // Reorganiza o array!
 					this.arrayPedidos[j] = this.arrayPedidos[j + 1];
 				}
-				this.arrayPedidos[arrayPedidos.length] = null; // Ao remover um pedido, claramente a ultima posicao
-				// do array será nula, haja vista que um pedido foi
-				// apagado;
+				this.arrayPedidos[arrayPedidos.length - 1] = null;
+
 			}
 		}
 	}
@@ -63,7 +62,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		for (int i = 0; i < arrayPedidos.length - 1 && !trocaRealizada; i++) {
 
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-				this.arrayPedidos[i] = novoPedido; // Troca o prato pedido pelo cliente;
+				this.arrayPedidos[i] = novoPedido; // Troca o pedido do cliente;
 				trocaRealizada = true;
 			}
 		}

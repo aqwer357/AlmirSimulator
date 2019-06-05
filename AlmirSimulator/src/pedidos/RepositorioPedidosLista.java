@@ -3,7 +3,7 @@ package pedidos;
 import clientes.Cliente;
 
 public class RepositorioPedidosLista implements RepositorioPedidos {
-	
+
 	private Pedido pedido;
 	private RepositorioPedidosLista proximo;
 
@@ -16,7 +16,7 @@ public class RepositorioPedidosLista implements RepositorioPedidos {
 		if (this.pedido == null) {
 			this.pedido = pedido;
 			this.proximo = new RepositorioPedidosLista();
-		
+
 		} else {
 			this.proximo.inserir(pedido);
 		}
@@ -34,17 +34,17 @@ public class RepositorioPedidosLista implements RepositorioPedidos {
 	public void atualizar(Cliente cliente, Pedido novoPedido) {
 		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 			this.pedido = novoPedido;
-		
+
 		} else {
 			this.proximo.atualizar(cliente, novoPedido);
 		}
 	}
 
 	public void remover(Cliente cliente) {
-		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) { 
+		if (this.pedido.getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 			this.pedido = this.proximo.pedido;
 			this.proximo = this.proximo.proximo;
-		
+
 		} else {
 			this.proximo.remover(cliente);
 		}

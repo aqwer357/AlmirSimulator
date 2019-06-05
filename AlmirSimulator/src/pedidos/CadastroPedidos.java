@@ -8,7 +8,7 @@ public class CadastroPedidos {
 	public CadastroPedidos(RepositorioPedidos repositorio) {// cria o repositorio conforme a necessidade;
 		this.repositorio = repositorio;
 	}
-
+	
 	public void inserir(Pedido pedido) {
 		this.repositorio.inserir(pedido);
 
