@@ -1,11 +1,11 @@
 package ingredientes;
 
 public interface RepositorioIngredientes {
-	public void inserir(Ingrediente ingrediente)
-		throws IngredienteJaExisteException;
+	
+	public void inserir(Ingrediente ingrediente);
 	
 	public void atualizar(Ingrediente ingrediente) 
-		throws IngredienteNaoEncontradoException, IngredienteJaExisteException;
+		throws IngredienteNaoEncontradoException;
 	
 	public void remover(String nome) 
 		throws IngredienteNaoEncontradoException;

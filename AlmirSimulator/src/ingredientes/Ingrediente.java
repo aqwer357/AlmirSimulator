@@ -3,12 +3,12 @@ package ingredientes;
 public class Ingrediente {
 	private String nome;
 	private boolean existe;
-	private boolean tipo;
+	private boolean especial;
 	
-	Ingrediente(String nome, boolean existe, boolean tipo) {
+	Ingrediente(String nome, boolean existe, boolean especial) {
 		this.nome = nome;
 		this.existe = existe;
-		this.tipo = tipo;
+		this.especial = especial;
 	}
 	public String getNome() {
 		return this.nome;
@@ -17,7 +17,7 @@ public class Ingrediente {
 		return this.existe;
 	}
 	public boolean getTipo() {
-		return this.tipo;
+		return this.especial;
 	}
 }
 
