@@ -1,6 +1,6 @@
 package pratos;
 
-import ingredientes.Ingrediente;
+import ingredientes.*;
 
 public class PratoEspecial extends Prato {
 
@@ -11,8 +11,7 @@ public class PratoEspecial extends Prato {
 	}
 
 	void inserirIngrediente(Ingrediente ingrediente) {
-		// TODO Auto-generated method stub
-		
+		this.getIngredientes().inserir(ingrediente);
 	}
 
 }

@@ -12,10 +12,10 @@ public class PratoComum extends Prato {
 		// TODO Auto-generated method stub
 		// Se o ingrediente for especial, nao pode ser inserido.
 		
-		if (ingrediente.especial)
+		if (ingrediente.getTipo())
 			throw new IIException();
 		else
-			ingredientes.inserir(ingrediente);
+			this.getIngredientes().inserir(ingrediente);
 	}
 	
 	
