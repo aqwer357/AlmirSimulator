@@ -12,7 +12,7 @@ public class CadastroClientes {
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException , LimiteAtingidoException{
 		if(this.repositorio.existe(cliente.getNome())) {
 			throw new ClienteJaCadastradoException();
-		}else {
+		} else {
 			this.repositorio.inserir(cliente);
 		}
 	}

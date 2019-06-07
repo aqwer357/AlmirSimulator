@@ -1,7 +1,7 @@
 package pratos;
 
 public interface RepositorioPratos {
-	void inserir(Prato prato) throws PJFIException;
+	void inserir(Prato prato);
 	
 	void atualizar(Prato prato) throws PNEException;
 	

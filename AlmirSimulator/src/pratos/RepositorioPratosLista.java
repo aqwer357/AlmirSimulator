@@ -4,7 +4,10 @@ public class RepositorioPratosLista implements RepositorioPratos {
 
 	private Prato prato;
 	private RepositorioPratosLista proximo;
-	private int codigo; //sera o identificador de pratos, cada prato tera um codigo que incrementa o anterior
+	private int codigo; 
+	
+	// codigo serve como identificador para cada prato inserido no repositorio, o primeiro prato eh o prato 1,
+	// o segundo eh o 2, o n-esimo eh n
 	
 	public RepositorioPratosLista() {
 		this.prato = null;
@@ -12,14 +15,12 @@ public class RepositorioPratosLista implements RepositorioPratos {
 		this.codigo = 0;
 	}
 
-	public void inserir(Prato prato) throws PJFIException {
+	public void inserir(Prato prato) {
 		if (this.prato == null) {
 			this.prato = prato;
 			this.proximo = new RepositorioPratosLista();
 			codigo++;
-		} else if (this.prato == prato)
-			throw new PJFIException();
-		else
+		} else
 			proximo.inserir(prato);
 	}
 

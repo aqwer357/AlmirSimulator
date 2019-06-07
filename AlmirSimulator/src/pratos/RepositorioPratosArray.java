@@ -2,14 +2,17 @@ package pratos;
 
 public class RepositorioPratosArray implements RepositorioPratos{
 	private Prato[] arrayPratos;
-	private int codigo;
+	private int codigo; 
+	
+	// codigo serve como identificador para cada prato inserido no repositorio, o primeiro prato eh o prato 1,
+	// o segundo eh o 2, o n-esimo eh n
 	
 	public RepositorioPratosArray() {
 		this.arrayPratos = new Prato[1000];
 		this.codigo = 0;
 	}
 	
-	public void inserir(Prato prato) throws PJFIException {
+	public void inserir(Prato prato) {
 		boolean inserido = false;
 		
 		if (!this.existe(prato.getCodigo()))
@@ -18,8 +21,6 @@ public class RepositorioPratosArray implements RepositorioPratos{
 					this.arrayPratos[i] = prato;
 					inserido = true;
 				}
-		else
-			throw new PJFIException();
 	}
 
 	public void atualizar(Prato prato) throws PNEException {
