@@ -18,7 +18,7 @@ public class Almir {
 	private CadastroPedidos pedidos;
 	private CadastroPratos pratos;
 	private CadastroClientes clientes;
-
+	
 	// Sergio disse que a decisao do repositorio eh feita no main, portanto
 	// deveremos trabalhar como se isso ja tivesse sido decidido.
 
@@ -27,7 +27,7 @@ public class Almir {
 		
 		this.fornecedores = new CadastroFornecedores(fornecedores); //inicializa os repositorios
 		this.ingredientes = new CadastroIngredientes(ingredientes);
-		this.pedidos = new CadastroPedidos(pedidos);
+		this.pedidos = new CadastroPedidos(pedidos, ingredientes);
 		this.pratos = new CadastroPratos(pratos);
 		this.clientes = new CadastroClientes(clientes);
 	
@@ -55,12 +55,12 @@ public class Almir {
 	}
 	
 	//PEDIDOS
-	public void cadastrarPedidos(Pedido pedido) {
-		this.pedidos.inserir(pedido);
+	public void cadastrarPedidos(Pedido pedido) throws IngredienteNaoEncontradoException {
+		this.pedidos.cadastrarPedido(pedido);
 	}
 	
 	public void removerPedido(Cliente cliente) throws ClienteNaoEncontradoException{
-		this.pedidos.remover(cliente);
+		this.pedidos.removerPedido(cliente);
 	}
 	
 	public Pedido obterPedido(Cliente cliente) throws ClienteNaoEncontradoException{
@@ -72,7 +72,7 @@ public class Almir {
 	}
 	
 	public boolean existePedido(Cliente cliente) {
-		return this.pedidos.existe(cliente);
+		return this.pedidos.existePedido(cliente);
 	}
 
 	//O monitor disse q estamos fazendo a fachada do jeito certo, dai eh so seguir o modelo. Beijao, galera! ~Thay 	

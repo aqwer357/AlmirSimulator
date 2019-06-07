@@ -1,16 +1,23 @@
 package pedidos;
 import clientes.*;
+import ingredientes.*;
 
 public class CadastroPedidos {
 	private RepositorioPedidos repositorio;
+	private RepositorioIngredientes todosIngredientes;
 
-	public CadastroPedidos(RepositorioPedidos repositorio) {// cria o repositorio conforme a necessidade;
+	public CadastroPedidos(RepositorioPedidos repositorio, RepositorioIngredientes todosIngredientes) {
 		this.repositorio = repositorio;
+		this.todosIngredientes = todosIngredientes;
 	}
 	
-	public void cadastrarPedido(Pedido pedido) {
+	public void cadastrarPedido(Pedido pedido) throws IngredienteNaoEncontradoException {
+		for(int i = 0; i < pedido.getTamanhoArray(); i++) { //Pega o tamanho do array de ingredientes do pedido;
+			if(!todosIngredientes.existe(pedido.getRefeicao()[i])) { //Checa se o ingrediente existe no outro repositorio;
+				throw new IngredienteNaoEncontradoException();
+			}
+		}
 		this.repositorio.cadastrarPedido(pedido);
-		
 	}
 
 	public void removerPedido(Cliente cliente) throws ClienteNaoEncontradoException {
