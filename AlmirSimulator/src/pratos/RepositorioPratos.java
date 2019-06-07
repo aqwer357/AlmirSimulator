@@ -3,11 +3,11 @@ package pratos;
 public interface RepositorioPratos {
 	void inserir(Prato prato);
 	
-	void atualizar(Prato prato) throws PNEException;
+	void atualizar(Prato prato);
 	
-	void remover(int codigoPrato) throws PNEException;
+	void remover(int codigoPrato);
 	
-	Prato procurar(int codigoPrato) throws PNEException;
+	Prato procurar(int codigoPrato);
 	
 	boolean existe(int codigoPrato);
 	

@@ -38,19 +38,19 @@ public class Almir {
 		this.fornecedores.cadastrar(fornecedor);
 	}
 
-	public void remover(int identificador) throws FornecedorNaoEncontradoException {
+	public void removerFornecedor(int identificador) throws FornecedorNaoEncontradoException {
 		this.fornecedores.remover(identificador);
 	}
 
-	public void atualizar(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
+	public void atualizarFornecedor(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
 		this.fornecedores.atualizar(fornecedor);
 	}
 
-	public boolean existe(int identificador) {
+	public boolean existeFornecedor(int identificador) {
 		return this.fornecedores.existe(identificador);
 	}
 
-	public Fornecedor procurar(int identificador) throws FornecedorNaoEncontradoException {
+	public Fornecedor procurarFornecedor(int identificador) throws FornecedorNaoEncontradoException {
 		return this.fornecedores.procurar(identificador);
 	}
 	
@@ -74,6 +74,28 @@ public class Almir {
 	public boolean existePedido(Cliente cliente) {
 		return this.pedidos.existe(cliente);
 	}
+	
+	//PRATOS
+	public void cadastrarPrato(Prato prato) throws PJFIException {
+		this.pratos.inserir(prato);
+	}
+		
+	public void removerPrato(int codigoPrato) throws PNEException {
+		this.pratos.remover(codigoPrato);
+	}
+		
+	public Prato obterPrato(int codigoPrato) throws PNEException {
+		return this.pratos.procurar(codigoPrato);
+	}
+		
+	public void atualizarPratos(Prato prato) throws PNEException {
+		this.pratos.atualizar(prato);
+	}
+		
+	public boolean existePratos(int codigoPrato) {
+		return this.pratos.existe(codigoPrato);
+	}
+
 
 	//O monitor disse q estamos fazendo a fachada do jeito certo, dai eh so seguir o modelo. Beijao, galera! ~Thay 	
 	

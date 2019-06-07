@@ -24,30 +24,24 @@ public class RepositorioPratosLista implements RepositorioPratos {
 			proximo.inserir(prato);
 	}
 
-	public void atualizar(Prato pratoNovo) throws PNEException {
-		if (pratoNovo.getCodigo() == this.prato.getCodigo()) {
+	public void atualizar(Prato pratoNovo) {
+		if (pratoNovo.getCodigo() == this.prato.getCodigo())
 			this.prato = pratoNovo;
-		} else if (this.proximo.prato == null)
-			throw new PNEException();
 		else
 			this.proximo.atualizar(pratoNovo);
 	}
 
-	public void remover(int codigoPrato) throws PNEException {
+	public void remover(int codigoPrato) {
 		if (this.prato.getCodigo() == codigoPrato) {
 			this.prato = this.proximo.prato;
 			this.proximo = this.proximo.proximo;
-		} else if (this.proximo == null)
-			throw new PNEException();
-		else
+		} else
 			this.proximo.remover(codigoPrato);
 	}
 
-	public Prato procurar(int codigoPrato) throws PNEException {
+	public Prato procurar(int codigoPrato) {
 		if (this.prato.getCodigo() == codigoPrato)
 			return this.prato;
-		else if (this.proximo.prato == null)
-			throw new PNEException();
 		else
 			return this.proximo.procurar(codigoPrato);
 		}

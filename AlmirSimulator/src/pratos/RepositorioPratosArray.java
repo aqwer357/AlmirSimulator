@@ -23,7 +23,7 @@ public class RepositorioPratosArray implements RepositorioPratos{
 				}
 	}
 
-	public void atualizar(Prato prato) throws PNEException {
+	public void atualizar(Prato prato) {
 		boolean inserido = false;
 		
 		for (int i = 0; !inserido && i < this.arrayPratos.length; i++)
@@ -31,12 +31,10 @@ public class RepositorioPratosArray implements RepositorioPratos{
 				this.arrayPratos[i] = prato;
 				inserido = true;
 			}
-		
-		if (!inserido)
-			throw new PNEException();
+
 	}
 
-	public void remover(int codigoPrato) throws PNEException {
+	public void remover(int codigoPrato) {
 		boolean removido = false;
 		
 		for (int i = 0; !removido && i < this.arrayPratos.length; i++)
@@ -45,11 +43,9 @@ public class RepositorioPratosArray implements RepositorioPratos{
 				removido = true;
 			}
 		
-		if (!removido)
-			throw new PNEException();
 	}
 
-	public Prato procurar(int codigoPrato) throws PNEException {
+	public Prato procurar(int codigoPrato) {
 		boolean encontrado = false;
 		Prato output = null;
 		
@@ -58,9 +54,6 @@ public class RepositorioPratosArray implements RepositorioPratos{
 				output = this.arrayPratos[i];
 				encontrado = true;
 			}
-		
-		if (!encontrado)
-			throw new PNEException();
 			
 		return output;
 	}
