@@ -12,6 +12,14 @@ public class RepositorioIngredientesArray {
 		this.ingredientes[indice] = ingrediente;
 		this.indice++;
 	}
+	
+	public Ingrediente getAtIndex(int index) {
+		return ingredientes[index];
+	}
+	
+	public int getIndice() {
+		return this.indice;
+	}
 
 	public void atualizar(Ingrediente ingrediente) throws IngredienteNaoEncontradoException {
 		Ingrediente ingredienteAlvo;
