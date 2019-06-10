@@ -27,7 +27,7 @@ public class Almir {
 		
 		this.fornecedores = new CadastroFornecedores(fornecedores); //inicializa os repositorios
 		this.ingredientes = new CadastroIngredientes(ingredientes);
-		this.pedidos = new CadastroPedidos(pedidos, ingredientes);
+		this.pedidos = new CadastroPedidos(pedidos, ingredientes); //Envia os dois repositorios inicializados p a classe pedidos;
 		this.pratos = new CadastroPratos(pratos);
 		this.clientes = new CadastroClientes(clientes);
 	

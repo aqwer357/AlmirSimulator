@@ -7,7 +7,7 @@ public class CadastroPedidos {
 	private RepositorioIngredientes todosIngredientes;
 
 	public CadastroPedidos(RepositorioPedidos repositorio, RepositorioIngredientes todosIngredientes) {
-		this.repositorio = repositorio;
+		this.repositorio = repositorio;				//Inicializa os repositorios na classe pedidos;
 		this.todosIngredientes = todosIngredientes;
 	}
 	
@@ -38,7 +38,7 @@ public class CadastroPedidos {
 	}
 
 	public void atualizarPedido(Cliente cliente, Pedido novoPedido) throws ClienteNaoEncontradoException {
-		if (!repositorio.existePedido(cliente)) {
+		if (!repositorio.existePedido(cliente)) {		
 			throw new ClienteNaoEncontradoException();
 		
 		} else {
