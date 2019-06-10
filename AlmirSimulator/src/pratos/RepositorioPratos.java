@@ -5,11 +5,11 @@ public interface RepositorioPratos {
 	
 	void atualizar(Prato prato);
 	
-	void remover(int codigoPrato);
+	void remover(String nome);
 	
-	Prato procurar(int codigoPrato);
+	Prato procurar(String nome);
 	
-	boolean existe(int codigoPrato);
+	boolean existe(String nome);
 	
 	int getCodigo();
 	

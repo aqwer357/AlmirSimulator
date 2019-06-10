@@ -76,24 +76,24 @@ public class Almir {
 	}
 	
 	//PRATOS
-	public void cadastrarPrato(Prato prato) throws PJFIException {
-		this.pratos.inserir(prato);
+	public void cadastrarPrato(Prato prato, Pedido pedido, RepositorioIngredientes ingredientes) throws PJFIException, IIException, IngredienteNaoEncontradoException {
+		this.pratos.inserir(prato, pedido, ingredientes);
+	}
+			
+	public void removerPrato(String nome) throws PNEException {
+		this.pratos.remover(nome);
 	}
 		
-	public void removerPrato(int codigoPrato) throws PNEException {
-		this.pratos.remover(codigoPrato);
-	}
-		
-	public Prato obterPrato(int codigoPrato) throws PNEException {
-		return this.pratos.procurar(codigoPrato);
+	public Prato obterPrato(String nome) throws PNEException {
+		return this.pratos.procurar(nome);
 	}
 		
 	public void atualizarPratos(Prato prato) throws PNEException {
 		this.pratos.atualizar(prato);
 	}
 		
-	public boolean existePratos(int codigoPrato) {
-		return this.pratos.existe(codigoPrato);
+	public boolean existePratos(String nome) {
+		return this.pratos.existe(nome);
 	}
 	
 	// CLIENTES

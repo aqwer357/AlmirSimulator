@@ -4,8 +4,8 @@ import ingredientes.*;
 
 public class PratoComum extends Prato {
 
-	public PratoComum(int codigoPrato) {
-		super(codigoPrato);
+	public PratoComum(String nome) {
+		super(nome);
 	}
 
 	public void inserirIngrediente(Ingrediente ingrediente) throws IIException {

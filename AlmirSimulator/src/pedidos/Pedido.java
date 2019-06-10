@@ -7,8 +7,7 @@ public class Pedido {
 	private int tamanhoArray;
 	private String tipoPedido;
 
-	public Pedido(String[] refeicao, Cliente cliente, int quantidadeIngredientes, String tipoPedido) {
-		this.refeicao = new String[quantidadeIngredientes];
+	public Pedido(String[] refeicao, Cliente cliente, String tipoPedido) {
 		this.refeicao = refeicao;
 		this.cliente = cliente;
 		this.tamanhoArray = refeicao.length;

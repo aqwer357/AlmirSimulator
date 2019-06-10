@@ -3,20 +3,13 @@ package pratos;
 import ingredientes.*;
 
 public abstract class Prato {
-	private int codigo;
+	private String nome;
 	private RepositorioIngredientes ingredientes;
 
-	public Prato(int codigoPrato) {
-		this.codigo = codigoPrato;
+	public Prato(String nome) {
+		this.nome = nome;
 		this.ingredientes = new RepositorioIngredientesLista();
-	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	protected void setCodigo(int codigoPrato) {
-		this.codigo = codigoPrato;
+		
 	}
 
 	public RepositorioIngredientes getIngredientes() {
@@ -27,6 +20,10 @@ public abstract class Prato {
 
 	protected void setIngredientes(RepositorioIngredientes ingredientes) {
 		this.ingredientes = ingredientes;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 }

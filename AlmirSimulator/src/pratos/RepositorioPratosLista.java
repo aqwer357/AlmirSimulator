@@ -25,34 +25,34 @@ public class RepositorioPratosLista implements RepositorioPratos {
 	}
 
 	public void atualizar(Prato pratoNovo) {
-		if (pratoNovo.getCodigo() == this.prato.getCodigo())
+		if (pratoNovo.getNome().equals(this.prato.getNome()))
 			this.prato = pratoNovo;
 		else
 			this.proximo.atualizar(pratoNovo);
 	}
 
-	public void remover(int codigoPrato) {
-		if (this.prato.getCodigo() == codigoPrato) {
+	public void remover(String nome) {
+		if (this.prato.getNome().equals(nome)) {
 			this.prato = this.proximo.prato;
 			this.proximo = this.proximo.proximo;
 		} else
-			this.proximo.remover(codigoPrato);
+			this.proximo.remover(nome);
 	}
 
-	public Prato procurar(int codigoPrato) {
-		if (this.prato.getCodigo() == codigoPrato)
+	public Prato procurar(String nome) {
+		if (this.prato.getNome().equals(nome))
 			return this.prato;
 		else
-			return this.proximo.procurar(codigoPrato);
+			return this.proximo.procurar(nome);
 		}
 
-	public boolean existe(int codigoPrato) {
-		if (this.prato.getCodigo() == codigoPrato)
+	public boolean existe(String nome) {
+		if (this.prato.getNome().equals(nome))
 			return true;
 		else if (this.proximo == null)
 			return false;
 		else
-			return this.proximo.existe(codigoPrato);
+			return this.proximo.existe(nome);
 	}
 	
 	public int getCodigo(){
