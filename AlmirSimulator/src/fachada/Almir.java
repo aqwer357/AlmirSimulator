@@ -33,17 +33,43 @@ public class Almir {
 	
 	}
 
-	// FORNECEDOR
-	public void cadastrarFornecedor(Fornecedor fornecedor) throws FornecedorJaCadastradoException {
+	// FORNECEDOR & INGREDIENTE
+	
+	// Só cadastramos os ingredientes que um fornecedor fornece
+	public void cadastrarFornecedor(Fornecedor fornecedor) throws FornecedorJaCadastradoException, IngredienteJaCadastradoException {
 		this.fornecedores.cadastrar(fornecedor);
+		
+		RepositorioIngredientesArray ingredientesNovos = fornecedor.getIngredientes();
+		
+		for(int i=0; i<= ingredientesNovos.getIndice(); i++) {
+			
+			this.ingredientes.cadastrar(ingredientesNovos.getAtIndex(i));
+		}
+		
 	}
-
-	public void removerFornecedor(int identificador) throws FornecedorNaoEncontradoException {
+	// Removemos o fornecedor e seus ingredientes
+	public void removerFornecedor(int identificador) throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException {
 		this.fornecedores.remover(identificador);
+		
+		Fornecedor fornecedorRemovido = fornecedores.procurar(identificador);
+		
+		RepositorioIngredientesArray ingredientesRemovidos = fornecedorRemovido.getIngredientes();
+	
+		for(int i=0; i<= ingredientesRemovidos.getIndice(); i++) {
+			
+			this.ingredientes.remover(ingredientesRemovidos.getAtIndex(i).getNome());
+		}
+		
 	}
-
-	public void atualizarFornecedor(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
+	//Atualiza as informações do fornecedor
+	public void atualizarFornecedor(Fornecedor fornecedor) throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException {
 		this.fornecedores.atualizar(fornecedor);
+		
+		RepositorioIngredientesArray ingredientesAtualizados = fornecedor.getIngredientes();
+		
+		for(int i=0; i<= ingredientesAtualizados.getIndice();i++) {
+			this.ingredientes.atualizar(ingredientesAtualizados.getAtIndex(i));
+		}
 	}
 
 	public boolean existeFornecedor(int identificador) {
@@ -54,25 +80,12 @@ public class Almir {
 		return this.fornecedores.procurar(identificador);
 	}
 	
-	//PEDIDOS
-	public void cadastrarPedidos(Pedido pedido) throws IngredienteNaoEncontradoException {
-		this.pedidos.cadastrarPedido(pedido);
+	public boolean existeIngrediente(String nome) {
+		return this.ingredientes.existe(nome);
 	}
 	
-	public void removerPedido(Cliente cliente) throws ClienteNaoEncontradoException{
-		this.pedidos.removerPedido(cliente);
-	}
-	
-	public Pedido obterPedido(Cliente cliente) throws ClienteNaoEncontradoException{
-		return this.pedidos.obterPedido(cliente);
-	}
-	
-	public void atualizarPedido(Cliente cliente, Pedido novoPedido) throws ClienteNaoEncontradoException{
-		this.pedidos.atualizarPedido(cliente, novoPedido);
-	}
-	
-	public boolean existePedido(Cliente cliente) {
-		return this.pedidos.existePedido(cliente);
+	public Ingrediente procurarIngrediente(String nome) throws IngredienteNaoEncontradoException {
+		return this.ingredientes.procurar(nome);
 	}
 	
 	//PRATOS
