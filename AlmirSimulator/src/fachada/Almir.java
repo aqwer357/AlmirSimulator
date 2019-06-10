@@ -95,6 +95,28 @@ public class Almir {
 	public boolean existePratos(int codigoPrato) {
 		return this.pratos.existe(codigoPrato);
 	}
+	
+	// CLIENTES
+	
+	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException{
+		this.clientes.cadastrar(cliente);
+	}
+	
+	public void removerCliente(String nome) throws ClienteNaoEncontradoException{
+		this.clientes.remover(nome);
+	}
+	
+	public Cliente procurarCliente(String nome) throws ClienteNaoEncontradoException{
+		return this.clientes.procurar(nome);
+	}
+	
+	public void atualizarClientes(Cliente cliente) throws ClienteNaoEncontradoException{
+		this.clientes.atualizar(cliente);
+	}
+	
+	public boolean existeCliente(String nome) {
+		return this.clientes.existe(nome);
+	}
 
 
 	//O monitor disse q estamos fazendo a fachada do jeito certo, dai eh so seguir o modelo. Beijao, galera! ~Thay 	
