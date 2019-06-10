@@ -33,8 +33,8 @@ public class CadastroIngredientes {
 		}
 	}
 	
-	public boolean existe(String identificador) {
-        return this.ingredientes.existe(identificador);
+	public boolean existe(String nome) {
+        return this.ingredientes.existe(nome);
     }
 	
 	public Ingrediente procurar(String nome) throws IngredienteNaoEncontradoException {
