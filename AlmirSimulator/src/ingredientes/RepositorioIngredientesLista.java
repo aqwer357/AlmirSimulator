@@ -8,6 +8,15 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 		this.ingrediente = null;
 		this.proximo= null;
 	}
+	
+	public Ingrediente getAtIndex(int index, int it) {
+		if(it < index) {
+			proximo.getAtIndex(index, it+1);
+		} else {
+			return this.ingrediente;
+		}
+		return null;
+	}
 
 	public void inserir(Ingrediente ingrediente) {
 		if (this.ingrediente == null) {
