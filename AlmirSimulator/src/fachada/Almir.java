@@ -98,7 +98,7 @@ public class Almir {
 	
 	// CLIENTES
 	
-	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException{
+	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException,LimiteAtingidoException{
 		this.clientes.cadastrar(cliente);
 	}
 	
