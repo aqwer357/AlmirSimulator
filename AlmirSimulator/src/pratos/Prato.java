@@ -32,5 +32,5 @@ public abstract class Prato {
 }
 
 //import pedidos.Pedido;
-//inicializar um atributo do tipo pedidos, pois junto ao pedido vir� um objeto do tipo cliente com todos os dados necess�rios referente ao prato.
+//inicializar um atributo do tipo pedidos, pois junto ao pedido virah um objeto do tipo cliente com todos os dados necess�rios referente ao prato.
 //by monitor.

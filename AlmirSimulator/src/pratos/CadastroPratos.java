@@ -3,6 +3,9 @@ package pratos;
 public class CadastroPratos {
 	private RepositorioPratos repositorio;
 	
+	public CadastroPratos(RepositorioPratos repositorio) {
+		this.repositorio = repositorio;
+	}
 	public void inserir(Prato prato) throws PJFIException {
 		if (repositorio.existe(prato.getCodigo()))
 			throw new PJFIException();
@@ -11,15 +14,24 @@ public class CadastroPratos {
 	}
 	
 	public void atualizar(Prato prato) throws PNEException {
-		this.repositorio.atualizar(prato);
+		if (!repositorio.existe(prato.getCodigo()))
+			throw new PNEException();
+		else
+			this.repositorio.atualizar(prato);
 	}
 	
 	public void remover(int codigoPrato) throws PNEException {
-		this.repositorio.remover(codigoPrato);
+		if (!repositorio.existe(codigoPrato))
+			throw new PNEException();
+		else
+			this.repositorio.remover(codigoPrato);
 	}
 	
 	public Prato procurar(int codigoPrato) throws PNEException {
-		return this.repositorio.procurar(codigoPrato);
+		if (!repositorio.existe(codigoPrato))
+			throw new PNEException();
+		else
+			return this.repositorio.procurar(codigoPrato);
 	}
 	
 	public boolean existe(int codigoPrato) {
