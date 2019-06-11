@@ -18,7 +18,7 @@ public class Fornecedor {
 		this.nome = nome;
 	}
 	
-	public void setIngredientes(RepositorioIngredientes ingredientes) {
+	public void setIngredientes(RepositorioIngredientesArray ingredientes) {
 		this.ingredientes = ingredientes;
 	}
 	
@@ -26,7 +26,7 @@ public class Fornecedor {
 		return this.nome;
 	}
 	
-	public RepositorioIngredientes getIngredientes() {
+	public RepositorioIngredientesArray getIngredientes() {
 		return this.ingredientes;
 	}
 	public int getIdentificador() {
