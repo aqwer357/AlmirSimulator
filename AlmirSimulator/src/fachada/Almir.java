@@ -70,7 +70,7 @@ public class Almir {
 
 		RepositorioIngredientesArray ingredientesAtualizados = fornecedor.getIngredientes();
 
-		for (int i = 0; i <= ingredientesAtualizados.getIndice(); i++) {
+		for (int i = 0; i < ingredientesAtualizados.getIndice(); i++) {
 			this.ingredientes.atualizar(ingredientesAtualizados.getAtIndex(i));
 		}
 	}
