@@ -4,7 +4,6 @@ public class Fornecedor {
 	private String nome;
 	private RepositorioIngredientesArray ingredientes;
 	private int identificador;
-	private boolean tipo;
 	
 	public Fornecedor(String nome, RepositorioIngredientesArray ingredientes, int identificador) {
 	this.nome = nome;
