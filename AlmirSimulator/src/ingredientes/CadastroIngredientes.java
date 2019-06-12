@@ -3,9 +3,9 @@ package ingredientes;
 public class CadastroIngredientes {
 	private RepositorioIngredientes ingredientes;
 	
-	public CadastroIngredientes (RepositorioIngredientes ingrediente) {
+	public CadastroIngredientes (RepositorioIngredientes ingredientes) {
 		
-		this.ingredientes = ingrediente;
+		this.ingredientes = ingredientes;
 	
 	}
 	
