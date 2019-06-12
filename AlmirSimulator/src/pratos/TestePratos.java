@@ -6,16 +6,16 @@ import pedidos.*;
 
 public class TestePratos {
 
-	public static void main(String[] args) throws IIException, PJFIException, IngredienteNaoEncontradoException {
+	public static void main(String[] args) throws IIException, PJFIException, IngredienteNaoEncontradoException, IngredienteJaCadastradoException {
 		
 		Ingrediente arroz = new Ingrediente("Arroz branco", false), omelete = new Ingrediente("Omelete", true),
 				frangoParmegiana = new Ingrediente("Frango a parmegiana", false);
 		
-		RepositorioIngredientes repIng = new RepositorioIngredientesLista();
+		CadastroIngredientes cadIng = new CadastroIngredientes(new RepositorioIngredientesArray());
 		
-		repIng.inserir(arroz);
-		repIng.inserir(omelete);
-		repIng.inserir(frangoParmegiana);
+		cadIng.cadastrar(arroz);
+		cadIng.cadastrar(omelete);
+		cadIng.cadastrar(frangoParmegiana);
 		
 		Prato teste1 = new PratoComum("Bob");
 		
@@ -28,11 +28,11 @@ public class TestePratos {
 		
 		Cliente bobert = new Cliente("Bobert", "CIn", 88769);
 		
-		Pedido pedido = new Pedido(new String[] {"Arroz branco", "Frango a parmegiana", "Omelete"}, bobert, "Especial");
+		Pedido pedido = new Pedido(bobert ,new String[] {"Arroz branco", "Frango a parmegiana", "Omelete"}, true);
 		
-		cadPra.inserir(teste2, pedido, repIng);
+		cadPra.inserir(teste2, pedido, cadIng);
 		
-		cadPra.inserir(teste3, pedido, new RepositorioIngredientesArray());
+		cadPra.inserir(teste3, pedido, new CadastroIngredientes(new RepositorioIngredientesLista()));
 	}
 
 }

@@ -10,7 +10,5 @@ public interface RepositorioPratos {
 	Prato procurar(String nome);
 	
 	boolean existe(String nome);
-	
-	int getCodigo();
-	
+		
 }

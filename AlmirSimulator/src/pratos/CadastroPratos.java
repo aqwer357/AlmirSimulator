@@ -9,7 +9,7 @@ public class CadastroPratos {
 	public CadastroPratos(RepositorioPratos repositorio) {
 		this.repositorio = repositorio;
 	}
-	public void inserir(Prato prato, Pedido pedido, RepositorioIngredientes ingredientes) throws PJFIException, IIException, IngredienteNaoEncontradoException {
+	public void inserir(Prato prato, Pedido pedido, CadastroIngredientes ingredientes) throws PJFIException, IIException, IngredienteNaoEncontradoException {
 		String[] arrayIngredientes = pedido.getRefeicao();
 		
 		for (int i = 0; i < pedido.getTamanhoArray(); i++) {

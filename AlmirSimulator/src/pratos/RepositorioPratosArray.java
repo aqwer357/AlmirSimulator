@@ -1,15 +1,13 @@
 package pratos;
 
 public class RepositorioPratosArray implements RepositorioPratos{
-	private Prato[] arrayPratos;
-	private int codigo; 
+	private Prato[] arrayPratos; 
 	
 	// codigo serve como identificador para cada prato inserido no repositorio, o primeiro prato eh o prato 1,
 	// o segundo eh o 2, o n-esimo eh n
 	
 	public RepositorioPratosArray() {
 		this.arrayPratos = new Prato[1000];
-		this.codigo = 0;
 	}
 	
 	public void inserir(Prato prato) {
@@ -70,7 +68,4 @@ public class RepositorioPratosArray implements RepositorioPratos{
 		return encontrado;
 	}
 	
-	public int getCodigo(){
-		return this.codigo;
-	}
 }
