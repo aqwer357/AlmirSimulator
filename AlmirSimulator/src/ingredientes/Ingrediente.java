@@ -5,7 +5,7 @@ public class Ingrediente {
 	private boolean existe;
 	private boolean especial;
 	
-	Ingrediente(String nome, boolean existe, boolean especial) {
+	public Ingrediente(String nome, boolean existe, boolean especial) {
 		this.nome = nome;
 		this.existe = existe;
 		this.especial = especial;
