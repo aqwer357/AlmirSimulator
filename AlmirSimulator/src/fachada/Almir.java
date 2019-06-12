@@ -42,7 +42,7 @@ public class Almir {
 
 		RepositorioIngredientesArray ingredientesNovos = fornecedor.getIngredientes();
 
-		for (int i = 0; i <= ingredientesNovos.getIndice(); i++) {
+		for (int i = 0; i < ingredientesNovos.getIndice(); i++) {
 
 			this.ingredientes.cadastrar(ingredientesNovos.getAtIndex(i));
 		}
@@ -57,7 +57,7 @@ public class Almir {
 
 		RepositorioIngredientesArray ingredientesRemovidos = fornecedorRemovido.getIngredientes();
 
-		for (int i = 0; i <= ingredientesRemovidos.getIndice(); i++) {
+		for (int i = 0; i < ingredientesRemovidos.getIndice(); i++) {
 
 			this.ingredientes.remover(ingredientesRemovidos.getAtIndex(i).getNome());
 		}
