@@ -1,4 +1,5 @@
 package pedidos;
+
 import clientes.*;
 
 public class RepositorioPedidosArray implements RepositorioPedidos {
@@ -23,8 +24,8 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 			arrayPedidos[codigo] = pedido;
 
 		} else {
-			codigo++;
 			arrayPedidos[codigo] = pedido;
+			codigo++;
 		}
 	}
 
@@ -38,14 +39,15 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 	}
 
 	public void removerPedido(Cliente cliente) {
-		for (int i = 0; i < arrayPedidos.length - 1; i++) {
+		for (int i = 0; i < arrayPedidos.length - 1 && this.arrayPedidos[i] != null; i++) {
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
-				
-				for (int j = cliente.getCodigoCliente(); j < arrayPedidos.length - 1; j++) { // Reorganiza o array!
-					this.arrayPedidos[j] = this.arrayPedidos[j + 1];
+				int aux = 0;
+				for (aux = cliente.getCodigoCliente(); this.arrayPedidos[aux] != null && aux < arrayPedidos.length - 1; aux++) { // Sobrepoe ate q a
+																									// proxima posicao
+																									// seja null;
+					this.arrayPedidos[aux] = this.arrayPedidos[aux + 1];
 				}
-				this.arrayPedidos[arrayPedidos.length - 1] = null;
-
+				this.arrayPedidos[aux] = null; // poe null na ultima posicao transferida;
 			}
 		}
 	}

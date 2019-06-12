@@ -4,13 +4,11 @@ import clientes.*;
 public class Pedido {
 	private String[] refeicao;
 	private Cliente cliente;
-	private int tamanhoArray;
-	private String tipoPedido;
+	private boolean tipoPedido; //True: especial; False: !especial;
 
-	public Pedido(String[] refeicao, Cliente cliente, String tipoPedido) {
-		this.refeicao = refeicao;
+	public Pedido(Cliente cliente, String[] refeicao, boolean tipoPedido) {
 		this.cliente = cliente;
-		this.tamanhoArray = refeicao.length;
+		this.refeicao = refeicao;
 		this.tipoPedido = tipoPedido;
 	}
 
@@ -27,10 +25,11 @@ public class Pedido {
 	}
 	
 	public int getTamanhoArray() {
-		return this.tamanhoArray;
+		int tamanhoArray = refeicao.length;
+		return tamanhoArray;
 	}
 	
-	public String getTipoPedido() {
+	public boolean getTipoPedido() {
 		return this.tipoPedido;
 	}
 }
