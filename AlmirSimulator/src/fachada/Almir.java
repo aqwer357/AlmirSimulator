@@ -23,7 +23,7 @@ public class Almir {
 	// deveremos trabalhar como se isso ja tivesse sido decidido.
 
 	public Almir(RepositorioFornecedores fornecedores, RepositorioIngredientes ingredientes, RepositorioPedidos pedidos,
-			RepositorioPratos pratos, RepositorioCliente clientes) {  //Indica o tipo do repositorio a ser usado;
+			RepositorioPratos pratos, RepositorioClientes clientes) {  //Indica o tipo do repositorio a ser usado;
 		
 		this.fornecedores = new CadastroFornecedores(fornecedores); //inicializa os repositorios
 		this.ingredientes = new CadastroIngredientes(ingredientes);

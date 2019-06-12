@@ -1,6 +1,6 @@
 package clientes;
 
-public interface RepositorioCliente {
+public interface RepositorioClientes {
 
 	boolean existe(String nome);
 	Cliente procurar(String nome) throws ClienteNaoEncontradoException;

@@ -1,10 +1,10 @@
 package clientes;
 
-public class RepositorioClienteArray implements RepositorioCliente {
+public class RepositorioClientesArray implements RepositorioClientes {
 	private Cliente[] arrayCliente;
 	private int indice;
 	
-	public RepositorioClienteArray() {
+	public RepositorioClientesArray() {
 		this.arrayCliente = new Cliente[1000];
 		this.indice = 0;
 	}

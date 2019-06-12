@@ -1,17 +1,17 @@
 package clientes;
 
-public class RepositorioClienteLista implements RepositorioCliente{
+public class RepositorioClientesLista implements RepositorioClientes{
     private Cliente cliente;
-    private RepositorioClienteLista proximo;
+    private RepositorioClientesLista proximo;
 
-    public RepositorioClienteLista(){
+    public RepositorioClientesLista(){
         this.cliente = null;
         this.proximo = null;
     }
 
     public void inserir(Cliente cliente){
         if(this.cliente == null){
-            this.proximo = new RepositorioClienteLista();
+            this.proximo = new RepositorioClientesLista();
             this.cliente = cliente;
         }
         else{
