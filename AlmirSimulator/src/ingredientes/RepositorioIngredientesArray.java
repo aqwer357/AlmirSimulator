@@ -1,10 +1,11 @@
 package ingredientes;
 
 public class RepositorioIngredientesArray implements RepositorioIngredientes {
-	private Ingrediente[] ingredientes = new Ingrediente[1000];
+	private Ingrediente[] ingredientes;
 	private int indice;
 
 	public RepositorioIngredientesArray() {
+		this.ingredientes = new Ingrediente[1000];
 		this.indice = 0;
 	}
 

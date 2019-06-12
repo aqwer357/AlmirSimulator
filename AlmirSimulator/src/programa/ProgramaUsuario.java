@@ -24,6 +24,7 @@ public class ProgramaUsuario {
 		System.out.printf("Insira a quantidade de fornecedores:");
 		
 		int quantFornecedores = in.nextInt();
+		in.nextLine();
 		
 		for (int i = 0; i < quantFornecedores; i++) {
 			RepositorioIngredientesArray ingredientesFornecedor = new RepositorioIngredientesArray();
@@ -33,14 +34,16 @@ public class ProgramaUsuario {
 			
 			System.out.printf("Quantos ingredientes ele fornece?");
 			int quantIngredientes = in.nextInt();
+			in.nextLine();
 			boolean ehEspecial = false;
 			
-			for (int j = 0; j < quantIngredientes; i++) {
+			for (int j = 0; j < quantIngredientes; j++) {
 				System.out.printf("\nInsira o nome do ingrediente:");
 				String nomeIngrediente = in.nextLine();
 				
 				System.out.printf("Eh especial? (responda com sim ou nao)");
 				String especial = in.next();
+				in.nextLine();
 				
 				if (especial.equals("sim"))
 					ehEspecial = true;
@@ -51,7 +54,10 @@ public class ProgramaUsuario {
 				
 			}
 			
-			almirLista.cadastrarFornecedor(new Fornecedor(nomeFornecedor, ingredientesFornecedor, i));
+			Fornecedor novoFornecedor = new Fornecedor(nomeFornecedor, ingredientesFornecedor, i);
+			almirLista.cadastrarFornecedor(novoFornecedor);
+			
+			System.out.printf("\nFornecedor cadastrado.");
 		}
 	}
 
