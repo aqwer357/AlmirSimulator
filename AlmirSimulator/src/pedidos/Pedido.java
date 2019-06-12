@@ -15,6 +15,14 @@ public class Pedido {
 	public void setPedido(String[] refeicao) {
 		this.refeicao = refeicao;
 	}
+	
+	public String printRefeicao() {
+		String resposta = "";
+		for(String i: refeicao) {
+			resposta += i + ", ";
+		}
+		return resposta.substring(0, resposta.length()-2);
+	}
 
 	public String[] getRefeicao() {
 		return this.refeicao;
@@ -32,4 +40,5 @@ public class Pedido {
 	public boolean getTipoPedido() {
 		return this.tipoPedido;
 	}
+	
 }
