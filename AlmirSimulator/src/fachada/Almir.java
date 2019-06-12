@@ -90,9 +90,13 @@ public class Almir {
 	public Ingrediente procurarIngrediente(String nome) throws IngredienteNaoEncontradoException {
 		return this.ingredientes.procurar(nome);
 	}
-
+	
+	public CadastroIngredientes getCadastroIngredientes() {
+		return this.ingredientes;
+	}
+	
 	// PRATOS
-	public void cadastrarPrato(Prato prato, Pedido pedido, RepositorioIngredientes ingredientes)
+	public void cadastrarPrato(Prato prato, Pedido pedido, CadastroIngredientes ingredientes)
 			throws PJFIException, IIException, IngredienteNaoEncontradoException {
 		this.pratos.inserir(prato, pedido, ingredientes);
 	}
