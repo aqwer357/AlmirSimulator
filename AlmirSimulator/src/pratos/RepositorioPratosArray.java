@@ -60,9 +60,12 @@ public class RepositorioPratosArray implements RepositorioPratos{
 	public boolean existe(String nome) {
 		boolean encontrado = false;
 		
-		for (int i = 0; !encontrado && i < this.arrayPratos.length; i++)
-			if (this.arrayPratos[i].getNome().equals(nome))
+		for (int i = 0; !encontrado && i < this.arrayPratos.length; i++) {
+			if (this.arrayPratos[i] == null)
+				encontrado = false;
+			else if (this.arrayPratos[i].getNome().equals(nome))
 				encontrado = true;
+		}
 		
 		return encontrado;
 	}

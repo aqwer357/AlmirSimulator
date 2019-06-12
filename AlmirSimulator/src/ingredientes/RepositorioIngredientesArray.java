@@ -1,6 +1,6 @@
 package ingredientes;
 
-public class RepositorioIngredientesArray {
+public class RepositorioIngredientesArray implements RepositorioIngredientes {
 	private Ingrediente[] ingredientes = new Ingrediente[1000];
 	private int indice;
 

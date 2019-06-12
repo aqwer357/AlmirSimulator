@@ -47,7 +47,9 @@ public class RepositorioPratosLista implements RepositorioPratos {
 		}
 
 	public boolean existe(String nome) {
-		if (this.prato.getNome().equals(nome))
+		if (this.prato == null)
+			return false;
+		else if (this.prato.getNome().equals(nome))
 			return true;
 		else if (this.proximo == null)
 			return false;
