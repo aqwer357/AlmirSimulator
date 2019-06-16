@@ -9,6 +9,20 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 		this.fornecedores = new Fornecedor[20];
 		this.indice = 0;
 	}
+	
+	public int getIndice(int identificador) {
+		int indice = 0;
+		
+		for(int i = indice; i<this.indice;i++) {
+			
+			if(fornecedores[i].getIdentificador() == identificador) {
+				indice = i;
+				i = this.indice;
+			}
+		}
+		
+		return indice;
+	}
 
 	// simulando um array dinamico para nao limitar o tamanho da array ao inserir
 
@@ -33,13 +47,9 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 
 	public boolean existe(int identificador) {
 
-		for (int i = 0; i < fornecedores.length; i++) {
+		for (int i = 0; i < this.indice; i++) {
 
-			if (fornecedores[i] == null) {
-				return false;
-			}
-
-			else if (fornecedores[i].getIdentificador() == identificador) {
+			if (fornecedores[i].getIdentificador() == identificador) {
 				return true;
 			}
 
@@ -51,27 +61,13 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 	public void remover(int identificador) throws FornecedorNaoEncontradoException {
 
 		if (this.existe(identificador)) {
-
+			
+			int i = this.getIndice(identificador);
 			this.indice = this.indice - 1;
 
-			for (int i = 0; i < fornecedores.length; i++) {
-
-				if (fornecedores[i].getIdentificador() == identificador) {
-					fornecedores[i] = null;
-
-					for (int j = i + 1; j < fornecedores.length; j++) {
-						if (fornecedores[j] == null) {
-
-							j = fornecedores.length;
-						} else {
-
-							fornecedores[j - 1] = fornecedores[j];
-							fornecedores[j] = null;
-						}
-					}
-
-				}
-			}
+			this.fornecedores[i] = this.fornecedores[this.indice];
+			this.fornecedores[this.indice] = null;
+			
 		} else {
 			FornecedorNaoEncontradoException e;
 			e = new FornecedorNaoEncontradoException();
@@ -84,13 +80,10 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 
 		if (this.existe(fornecedor.getIdentificador())) {
 
-			for (int i = 0; i < fornecedores.length; i++) {
-
-				if (fornecedores[i].getIdentificador() == fornecedor.getIdentificador()) {
-					fornecedores[i] = fornecedor;
-					i = fornecedores.length;
-				}
-			}
+			int i = this.getIndice(fornecedor.getIdentificador());
+			
+			this.fornecedores[i] = fornecedor;
+			
 		} else {
 			FornecedorNaoEncontradoException e;
 			e = new FornecedorNaoEncontradoException();
@@ -101,17 +94,11 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores {
 	public Fornecedor procurar(int identificador) throws FornecedorNaoEncontradoException {
 
 		if (this.existe(identificador)) {
-
+			
+			int i = this.getIndice(identificador);
 			Fornecedor retorno = null;
 
-			for (int i = 0; i < fornecedores.length; i++) {
-
-				if (fornecedores[i].getIdentificador() == identificador) {
-					retorno = fornecedores[i];
-					i = fornecedores.length;
-				}
-			}
-
+			retorno = this.fornecedores[i];
 			return retorno;
 
 		} else {
