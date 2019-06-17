@@ -45,7 +45,7 @@ public class ProgramaUsuario {
 				String especial = in.next();
 				in.nextLine();
 				
-				if (especial.equals("sim"))
+				if (especial.equalsIgnoreCase("sim"))
 					ehEspecial = true;
 				else
 					ehEspecial = false;
