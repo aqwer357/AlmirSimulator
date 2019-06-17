@@ -14,8 +14,8 @@ public class RepositorioIngredientesArray implements RepositorioIngredientes {
 		this.indice++;
 	}
 	
-	public Ingrediente getAtIndex(int index) {
-		return ingredientes[index];
+	public Ingrediente[] getInterator() {
+		return this.ingredientes;
 	}
 	
 	public int getIndice() {
