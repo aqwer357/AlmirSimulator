@@ -15,7 +15,7 @@ public class Programa {
 		
 		Scanner in = new Scanner(System.in);
 		
-		
+		// SAIA. SAIA DO GRUPO AGORA
 			
 		RepositorioFornecedores fornecedores = new RepositorioFornecedoresArray();
 		//RepositorioFornecedores fornecedores = new RepositorioFornecedoresLista();
