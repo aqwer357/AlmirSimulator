@@ -37,42 +37,54 @@ public class Almir {
 	// FORNECEDOR & INGREDIENTE
 
 	public void cadastrarFornecedor(Fornecedor fornecedor)
-			throws FornecedorJaCadastradoException, IngredienteJaCadastradoException {
-		this.fornecedores.cadastrar(fornecedor);
-
-		RepositorioIngredientesArray ingredientesNovos = fornecedor.getIngredientes();
-
-		for (int i = 0; i < ingredientesNovos.getIndice(); i++) {
-
-			this.ingredientes.cadastrar(ingredientesNovos.getAtIndex(i));
+			throws FornecedorJaCadastradoException, IngredienteNaoEncontradoException, FornecedorInvalidoException {
+		
+		for(int i=0;i<fornecedor.tamanhoArray();i++) {
+			if(!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
+				throw new FornecedorInvalidoException();
+			}	
 		}
-
+		
+		this.fornecedores.cadastrar(fornecedor);
+	}
+	
+	
+	
+	public void cadastrarIngrediente(Ingrediente ingrediente) 
+		throws IngredienteJaCadastradoException {
+			this.ingredientes.cadastrar(ingrediente);
+		
 	}
 
 	public void removerFornecedor(int identificador)
 			throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException {
+
 		this.fornecedores.remover(identificador);
-
-		Fornecedor fornecedorRemovido = fornecedores.procurar(identificador);
-
-		RepositorioIngredientesArray ingredientesRemovidos = fornecedorRemovido.getIngredientes();
-
-		for (int i = 0; i < ingredientesRemovidos.getIndice(); i++) {
-
-			this.ingredientes.remover(ingredientesRemovidos.getAtIndex(i).getNome());
-		}
-
+		
+	}
+	
+	public void removerIngrediente(String nome) 
+		throws IngredienteNaoEncontradoException {
+		
+		this.ingredientes.remover(nome);
+		
 	}
 
 	public void atualizarFornecedor(Fornecedor fornecedor)
-			throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException {
-		this.fornecedores.atualizar(fornecedor);
-
-		RepositorioIngredientesArray ingredientesAtualizados = fornecedor.getIngredientes();
-
-		for (int i = 0; i < ingredientesAtualizados.getIndice(); i++) {
-			this.ingredientes.atualizar(ingredientesAtualizados.getAtIndex(i));
+			throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException, FornecedorInvalidoException {
+		
+		for(int i=0;i<fornecedor.tamanhoArray();i++) {
+			if(!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
+				throw new FornecedorInvalidoException();
+			}	
 		}
+		
+		this.fornecedores.atualizar(fornecedor);
+	}
+	
+	public void atualizarIngrediente(Ingrediente ingrediente) 
+		throws IngredienteNaoEncontradoException{
+		this.ingredientes.atualizar(ingrediente);
 	}
 
 	public boolean existeFornecedor(int identificador) {
@@ -94,6 +106,7 @@ public class Almir {
 	public CadastroIngredientes getCadastroIngredientes() {
 		return this.ingredientes;
 	}
+	
 	
 	// PRATOS
 	public void cadastrarPrato(Prato prato, Pedido pedido, CadastroIngredientes ingredientes)
