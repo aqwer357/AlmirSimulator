@@ -27,8 +27,12 @@ public class Fornecedor {
 		return this.nome;
 	}
 
-	public RepositorioIngredientesArray getIngredientes() {
-		return this.ingredientes;
+	public Ingrediente[] getIngredientes() {
+		return this.ingredientes.getInterator();
+	}
+	
+	public int tamanhoArray() {
+		return this.ingredientes.getIndice();
 	}
 
 	public int getIdentificador() {
