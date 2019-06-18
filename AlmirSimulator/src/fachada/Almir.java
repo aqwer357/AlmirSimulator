@@ -38,52 +38,47 @@ public class Almir {
 
 	public void cadastrarFornecedor(Fornecedor fornecedor)
 			throws FornecedorJaCadastradoException, IngredienteNaoEncontradoException, FornecedorInvalidoException {
-		
-		for(int i=0;i<fornecedor.tamanhoArray();i++) {
-			if(!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
+
+		for (int i = 0; i < fornecedor.tamanhoArray(); i++) {
+			if (!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
 				throw new FornecedorInvalidoException();
-			}	
+			}
 		}
-		
+
 		this.fornecedores.cadastrar(fornecedor);
 	}
-	
-	
-	
-	public void cadastrarIngrediente(Ingrediente ingrediente) 
-		throws IngredienteJaCadastradoException {
-			this.ingredientes.cadastrar(ingrediente);
-		
+
+	public void cadastrarIngrediente(Ingrediente ingrediente) throws IngredienteJaCadastradoException {
+		this.ingredientes.cadastrar(ingrediente);
+
 	}
 
 	public void removerFornecedor(int identificador)
 			throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException {
 
 		this.fornecedores.remover(identificador);
-		
+
 	}
-	
-	public void removerIngrediente(String nome) 
-		throws IngredienteNaoEncontradoException {
-		
+
+	public void removerIngrediente(String nome) throws IngredienteNaoEncontradoException {
+
 		this.ingredientes.remover(nome);
-		
+
 	}
 
 	public void atualizarFornecedor(Fornecedor fornecedor)
 			throws FornecedorNaoEncontradoException, IngredienteNaoEncontradoException, FornecedorInvalidoException {
-		
-		for(int i=0;i<fornecedor.tamanhoArray();i++) {
-			if(!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
+
+		for (int i = 0; i < fornecedor.tamanhoArray(); i++) {
+			if (!this.ingredientes.existe(fornecedor.getIngredientes()[i].getNome())) {
 				throw new FornecedorInvalidoException();
-			}	
+			}
 		}
-		
+
 		this.fornecedores.atualizar(fornecedor);
 	}
-	
-	public void atualizarIngrediente(Ingrediente ingrediente) 
-		throws IngredienteNaoEncontradoException{
+
+	public void atualizarIngrediente(Ingrediente ingrediente) throws IngredienteNaoEncontradoException {
 		this.ingredientes.atualizar(ingrediente);
 	}
 
@@ -102,12 +97,11 @@ public class Almir {
 	public Ingrediente procurarIngrediente(String nome) throws IngredienteNaoEncontradoException {
 		return this.ingredientes.procurar(nome);
 	}
-	
+
 	public CadastroIngredientes getCadastroIngredientes() {
 		return this.ingredientes;
 	}
-	
-	
+
 	// PRATOS
 	public void cadastrarPrato(Prato prato, Pedido pedido, CadastroIngredientes ingredientes)
 			throws PJFIException, IIException, IngredienteNaoEncontradoException {

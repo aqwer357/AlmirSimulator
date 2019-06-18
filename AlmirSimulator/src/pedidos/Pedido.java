@@ -2,8 +2,8 @@ package pedidos;
 import clientes.*;
 
 public class Pedido {
-	private String[] refeicao;
 	private Cliente cliente;
+	private String[] refeicao;
 	private boolean tipoPedido; //True: especial; False: !especial;
 
 	public Pedido(Cliente cliente, String[] refeicao, boolean tipoPedido) {

@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Programa {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IngredienteNaoEncontradoException, FornecedorInvalidoException, LimiteAtingidoException {
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -33,7 +33,7 @@ public class Programa {
 		//RepositorioClientes clientes = new RepositorioClientesLista();
 		
 		Almir almirA = new Almir(fornecedores, ingredientes, pedidos, pratos, clientes);
-		Almir almirL = new Almir(fornecedores, ingredientes, pedidos, pratos, clientes);
+		//Almir almirL = new Almir(fornecedores, ingredientes, pedidos, pratos, clientes);
 		
 		
 		RepositorioIngredientesArray ingredientesFornecedor1 = new RepositorioIngredientesArray();
@@ -61,20 +61,25 @@ public class Programa {
 		try{
 			almirA.cadastrarFornecedor(eu);
 			almirA.cadastrarFornecedor(tu);
-			System.out.println("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.println("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("------Fornecedor cadastrado com sucesso------");
+			System.out.println("------Ingredientes cadastrados com sucesso------");
 			
-		} catch (FornecedorJaCadastradoException | IngredienteJaCadastradoException e) {
-			System.out.println("\\n\\n----------------- ERRO -----------------");
+		} catch (Exception e) {
+			System.out.println("----------------- ERRO -----------------");
 			System.out.println(e.getMessage()+ "\n\n");
-		}
+		
+		}	
 		
 		try {
 			almirA.removerFornecedor(100);
-		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
-			System.out.println("\\n\\n----------------- ERRO -----------------");
+			
+		} catch (Exception e) {
+			System.out.println("----------------- ERRO -----------------");
 			System.out.println(e.getMessage()+ "\n\n");
 		}
-	}
+		
+		
+		
+	}	
 
 }
