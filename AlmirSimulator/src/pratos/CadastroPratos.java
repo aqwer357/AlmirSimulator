@@ -5,15 +5,17 @@ import ingredientes.*;
 
 public class CadastroPratos {
 	private RepositorioPratos repositorio;
+	private RepositorioIngredientes ingredientes;
 	
-	public CadastroPratos(RepositorioPratos repositorio) {
+	public CadastroPratos(RepositorioPratos repositorio, RepositorioIngredientes ingredientes) {
 		this.repositorio = repositorio;
+		this.ingredientes = ingredientes;
 	}
-	public void inserir(Prato prato, Pedido pedido, CadastroIngredientes ingredientes) throws PJFIException, IIException, IngredienteNaoEncontradoException {
+	public void inserir(Prato prato, Pedido pedido) throws PJFIException, IIException, IngredienteNaoEncontradoException {
 		String[] arrayIngredientes = pedido.getRefeicao();
 		
 		for (int i = 0; i < pedido.getTamanhoArray(); i++) {
-			prato.inserirIngrediente(ingredientes.procurar(arrayIngredientes[i]));
+			prato.inserirIngrediente(this.ingredientes.procurar(arrayIngredientes[i]));
 		}
 		
 		if (repositorio.existe(prato.getNome()))

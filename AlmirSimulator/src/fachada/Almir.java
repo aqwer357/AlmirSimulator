@@ -29,7 +29,7 @@ public class Almir {
 		this.ingredientes = new CadastroIngredientes(ingredientes);
 		this.pedidos = new CadastroPedidos(pedidos, ingredientes); // Envia os dois repositorios inicializados p a
 																	// classe pedidos;
-		this.pratos = new CadastroPratos(pratos);
+		this.pratos = new CadastroPratos(pratos, ingredientes);
 		this.clientes = new CadastroClientes(clientes);
 
 	}
@@ -105,7 +105,7 @@ public class Almir {
 	// PRATOS
 	public void cadastrarPrato(Prato prato, Pedido pedido, CadastroIngredientes ingredientes)
 			throws PJFIException, IIException, IngredienteNaoEncontradoException {
-		this.pratos.inserir(prato, pedido, ingredientes);
+		this.pratos.inserir(prato, pedido);
 	}
 
 	public void removerPrato(String nome) throws PNEException {
