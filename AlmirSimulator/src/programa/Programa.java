@@ -11,9 +11,9 @@ import java.util.*;
 
 public class Programa {
 
-	public static void main(String[] args) throws IngredienteNaoEncontradoException, FornecedorInvalidoException, LimiteAtingidoException {
-		
-	
+	public static void main(String[] args)
+			throws IngredienteNaoEncontradoException, FornecedorInvalidoException, LimiteAtingidoException {
+
 		Scanner in = new Scanner(System.in);
 
 		// TESTE ARRAY
@@ -30,8 +30,7 @@ public class Programa {
 		RepositorioIngredientesArray ingredientesFornecedor2 = new RepositorioIngredientesArray();
 		RepositorioIngredientesArray ingredientesFornecedor3 = new RepositorioIngredientesArray();
 		RepositorioIngredientesArray ingredientesFornecedor4 = new RepositorioIngredientesArray();
-	
-		
+
 		Ingrediente ingredienteF11 = new Ingrediente("Arroz integral", false);
 		Ingrediente ingredienteF12 = new Ingrediente("Feijao mulatinho", false);
 		Ingrediente ingredienteF13 = new Ingrediente("Feijao macassar", false);
@@ -46,7 +45,7 @@ public class Programa {
 
 		Ingrediente ingredienteTeste1 = new Ingrediente("Sushi", true);
 		Ingrediente ingredienteTeste2 = new Ingrediente("Arroz branco", false);
-	
+
 		// CADASTRO DE INGREDIENTES
 		try {
 			almirA.cadastrarIngrediente(ingredienteF11);
@@ -60,23 +59,26 @@ public class Programa {
 
 			almirA.cadastrarIngrediente(ingredienteF31);
 			almirA.cadastrarIngrediente(ingredienteF32);
-			
+
 			almirA.cadastrarIngrediente(ingredienteTeste1);
-			
+
+			System.out.println("Ingrediente(s) cadastrado(s) com sucesso.\n");
+
 		} catch (IngredienteJaCadastradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// REMOVENDO INGREDIENTE
 		try {
 			almirA.removerIngrediente("Sushi");
-		} catch (IngredienteNaoEncontradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
-		
 		ingredientesFornecedor1.inserir(ingredienteF11);
 		ingredientesFornecedor1.inserir(ingredienteF12);
 		ingredientesFornecedor1.inserir(ingredienteF13);
@@ -99,90 +101,91 @@ public class Programa {
 		try {
 			almirA.cadastrarFornecedor(acompanhamentos);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-		
-		//Tentando cadastrar o mesmo fornecedor
+
+		// Tentando cadastrar o mesmo fornecedor
 		try {
 			almirA.cadastrarFornecedor(acompanhamentos);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirA.cadastrarFornecedor(carnes);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirA.cadastrarFornecedor(especiais);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirA.cadastrarFornecedor(sonho);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// REMOCAO DE FORNECEDORES
 		try {
+
 			almirA.removerFornecedor(104);
-			System.out.printf("\n\n------Fornecedor removido com sucesso------");
+			System.out.println("Fornecedor(es) removido(s) com sucesso.\n");
+
 		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-		
+
 		// ATUALIZANDO FORNECEDORES + INGREDIENTES
-		
+
 		try {
 			almirA.removerIngrediente("Arroz integral");
 			almirA.cadastrarIngrediente(ingredienteTeste2);
-			
+
 			RepositorioIngredientesArray ingredientesAtualizados = new RepositorioIngredientesArray();
-			
+
 			ingredientesAtualizados.inserir(ingredienteTeste2);
 			ingredientesAtualizados.inserir(ingredienteF12);
 			ingredientesAtualizados.inserir(ingredienteF13);
 			ingredientesAtualizados.inserir(ingredienteF14);
-			
+
 			Fornecedor fornecedorAtualizado = new Fornecedor("Emp1 2.0", ingredientesAtualizados, 101);
-			
+
 			almirA.atualizarFornecedor(fornecedorAtualizado);
-			
-		} catch (IngredienteNaoEncontradoException | IngredienteJaCadastradoException | FornecedorNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+
+			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
+			System.out.println("Ingrediente(s) cadastrado(s) com sucesso.\n");
+			System.out.println("Fornecedor(es) atualizado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-			
+
 		// LISTA DE CLIENTES
 
 		Cliente cliente1 = new Cliente("Thayna", "CIn", 0);
@@ -192,42 +195,58 @@ public class Programa {
 		Cliente cliente2 = new Cliente("Fabiano", "CCEN", 1);
 		Pedido pedido2 = new Pedido(cliente2, new String[] { "Macarrao", "Pure de batatas", "Carne" }, false);
 
-		// CADASTRA OS PEDIDOS
+		// CADASTRA OS PEDIDOS + CLIENTES
 		try {
 			almirA.cadastrarCliente(cliente1);
-			System.out.println("------Cliente cadastrado com sucesso------");
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
 		}
 
 		catch (Exception e) {
-			System.out.println("----------------- ERRO -----------------");
+			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirA.cadastrarCliente(cliente2);
-			System.out.println("------Cliente cadastrado com sucesso------");
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
+
 		} catch (Exception e) {
-			System.out.println("----------------- ERRO -----------------");
+			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// CADASTRA OS PEDIDOS
 		try {
 			almirA.cadastrarPedido(pedido1);
-			System.out.println("------Pedido cadastrado com sucesso------");
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+
 		} catch (Exception e) {
-			System.out.println("----------------- ERRO -----------------");
+			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n\n");
 		}
 		try {
 			almirA.cadastrarPedido(pedido2);
-			System.out.println("------Pedido cadastrado com sucesso------");
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+
 		} catch (Exception e) {
-			System.out.println("----------------- ERRO -----------------");
+			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n\n");
 		}
-		
-	
+
+		// ATUALIZA PEDIDO ERRADO
+
+		Pedido pedidoAtualizado = new Pedido(cliente1,
+				new String[] { "Macarrao", "Feijao mulatinho", "Calabresa acebolada" }, false);
+
+		try {
+			almirA.atualizarPedido(cliente1, pedidoAtualizado);
+			System.out.println("Pedido(s) atualizado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
+
 		// TESTE LISTA
 		RepositorioFornecedores fornecedoresLista = new RepositorioFornecedoresLista();
 		RepositorioIngredientes ingredientesLista = new RepositorioIngredientesLista();
@@ -237,7 +256,6 @@ public class Programa {
 
 		Almir almirL = new Almir(fornecedoresLista, ingredientesLista, pedidosLista, pratosLista, clientesLista);
 
-	
 		// CADASTRO DE INGREDIENTES
 		try {
 			almirL.cadastrarIngrediente(ingredienteF11);
@@ -251,147 +269,164 @@ public class Programa {
 
 			almirL.cadastrarIngrediente(ingredienteF31);
 			almirL.cadastrarIngrediente(ingredienteF32);
-			
+
 			almirL.cadastrarIngrediente(ingredienteTeste1);
-			
+
+			System.out.println("Ingrediente(s) cadastrado(s) com sucesso.\n");
+
 		} catch (IngredienteJaCadastradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// REMOVENDO INGREDIENTE
 		try {
 			almirL.removerIngrediente("Sushi");
-		} catch (IngredienteNaoEncontradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// CADASTRO DE FORNECEDORES
 		try {
 			almirL.cadastrarFornecedor(acompanhamentos);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-		
-		//Tentando cadastrar o mesmo fornecedor
+
+		// Tentando cadastrar o mesmo fornecedor
 		try {
 			almirL.cadastrarFornecedor(acompanhamentos);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirL.cadastrarFornecedor(carnes);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirL.cadastrarFornecedor(especiais);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		try {
 			almirL.cadastrarFornecedor(sonho);
 
-			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
-			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
-		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
 
 		// REMOCAO DE FORNECEDORES
 		try {
+
 			almirL.removerFornecedor(104);
-			System.out.printf("\n\n------Fornecedor removido com sucesso------");
+			System.out.println("Fornecedor(es) removido(s) com sucesso.\n");
+
 		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n");
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-		
+
 		// ATUALIZANDO FORNECEDORES + INGREDIENTES
-		
+
 		try {
 			almirL.removerIngrediente("Arroz integral");
 			almirL.cadastrarIngrediente(ingredienteTeste2);
-			
+
 			RepositorioIngredientesArray ingredientesAtualizados = new RepositorioIngredientesArray();
-			
+
 			ingredientesAtualizados.inserir(ingredienteTeste2);
 			ingredientesAtualizados.inserir(ingredienteF12);
 			ingredientesAtualizados.inserir(ingredienteF13);
 			ingredientesAtualizados.inserir(ingredienteF14);
-			
+
 			Fornecedor fornecedorAtualizado = new Fornecedor("Emp1 2.0", ingredientesAtualizados, 101);
-			
+
 			almirL.atualizarFornecedor(fornecedorAtualizado);
-			
-		} catch (IngredienteNaoEncontradoException | IngredienteJaCadastradoException | FornecedorNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+
+			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
+			System.out.println("Ingrediente(s) cadastrado(s) com sucesso.\n");
+			System.out.println("Fornecedor(es) atualizado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
 		}
-		
+
+		// CADASTRA OS PEDIDOS + CLIENTES
+		try {
+			almirL.cadastrarCliente(cliente1);
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
+		}
+
+		catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
+
+		try {
+			almirL.cadastrarCliente(cliente2);
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
+
 		// CADASTRA OS PEDIDOS
-				try {
-					almirL.cadastrarCliente(cliente1);
-					System.out.println("------Cliente cadastrado com sucesso------");
-				}
+		try {
+			almirL.cadastrarPedido(pedido1);
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
 
-				catch (Exception e) {
-					System.out.println("----------------- ERRO -----------------");
-					System.out.println(e.getMessage() + "\n\n");
-				}
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
+		try {
+			almirL.cadastrarPedido(pedido2);
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
 
-				try {
-					almirL.cadastrarCliente(cliente2);
-					System.out.println("------Cliente cadastrado com sucesso------");
-				} catch (Exception e) {
-					System.out.println("----------------- ERRO -----------------");
-					System.out.println(e.getMessage() + "\n\n");
-				}
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
 
-				// CADASTRA OS PEDIDOS
-				try {
-					almirL.cadastrarPedido(pedido1);
-					System.out.println("------Pedido cadastrado com sucesso------");
-				} catch (Exception e) {
-					System.out.println("----------------- ERRO -----------------");
-					System.out.println(e.getMessage() + "\n\n");
-				}
-				try {
-					almirL.cadastrarPedido(pedido2);
-					System.out.println("------Pedido cadastrado com sucesso------");
-				} catch (Exception e) {
-					System.out.println("----------------- ERRO -----------------");
-					System.out.println(e.getMessage() + "\n\n");
-				}
-				
-		
+		// ATUALIZA PEDIDO ERRADO
+
+		try {
+			almirL.atualizarPedido(cliente1, pedidoAtualizado);
+			System.out.println("Pedido(s) atualizado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n\n");
+		}
+
 	}
 
 }
-
