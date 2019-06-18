@@ -354,6 +354,43 @@ public class Programa {
 			System.out.printf("\n\n----------------- ERRO -----------------\n");
 			System.out.printf(e.getMessage() + "\n\n");
 		}
+		
+		// CADASTRA OS PEDIDOS
+				try {
+					almirL.cadastrarCliente(cliente1);
+					System.out.println("------Cliente cadastrado com sucesso------");
+				}
+
+				catch (Exception e) {
+					System.out.println("----------------- ERRO -----------------");
+					System.out.println(e.getMessage() + "\n\n");
+				}
+
+				try {
+					almirL.cadastrarCliente(cliente2);
+					System.out.println("------Cliente cadastrado com sucesso------");
+				} catch (Exception e) {
+					System.out.println("----------------- ERRO -----------------");
+					System.out.println(e.getMessage() + "\n\n");
+				}
+
+				// CADASTRA OS PEDIDOS
+				try {
+					almirL.cadastrarPedido(pedido1);
+					System.out.println("------Pedido cadastrado com sucesso------");
+				} catch (Exception e) {
+					System.out.println("----------------- ERRO -----------------");
+					System.out.println(e.getMessage() + "\n\n");
+				}
+				try {
+					almirL.cadastrarPedido(pedido2);
+					System.out.println("------Pedido cadastrado com sucesso------");
+				} catch (Exception e) {
+					System.out.println("----------------- ERRO -----------------");
+					System.out.println(e.getMessage() + "\n\n");
+				}
+				
+		
 	}
 
 }
