@@ -413,7 +413,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// ATUALIZA PEDIDO ERRADO
