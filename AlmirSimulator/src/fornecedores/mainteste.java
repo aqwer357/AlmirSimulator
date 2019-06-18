@@ -29,7 +29,8 @@ public class mainteste {
 		RepositorioIngredientesArray ingredientesFornecedor2 = new RepositorioIngredientesArray();
 		RepositorioIngredientesArray ingredientesFornecedor3 = new RepositorioIngredientesArray();
 		RepositorioIngredientesArray ingredientesFornecedor4 = new RepositorioIngredientesArray();
-
+	
+		
 		Ingrediente ingredienteF11 = new Ingrediente("Arroz integral", false);
 		Ingrediente ingredienteF12 = new Ingrediente("Feijao mulatinho", false);
 		Ingrediente ingredienteF13 = new Ingrediente("Feijao macassar", false);
@@ -43,8 +44,8 @@ public class mainteste {
 		Ingrediente ingredienteF32 = new Ingrediente("Macaxeira com calabresa", true);
 
 		Ingrediente ingredienteTeste1 = new Ingrediente("Sushi", true);
-		Ingrediente ingredienteTeste2 = new Ingrediente("Arroz Branco", false);
-
+		Ingrediente ingredienteTeste2 = new Ingrediente("Arroz branco", false);
+	
 		// CADASTRO DE INGREDIENTES
 		try {
 			almirA.cadastrarIngrediente(ingredienteF11);
@@ -58,7 +59,9 @@ public class mainteste {
 
 			almirA.cadastrarIngrediente(ingredienteF31);
 			almirA.cadastrarIngrediente(ingredienteF32);
-
+			
+			almirA.cadastrarIngrediente(ingredienteTeste1);
+			
 		} catch (IngredienteJaCadastradoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------\n");
 			System.out.printf(e.getMessage() + "\n\n");
@@ -66,12 +69,13 @@ public class mainteste {
 
 		// REMOVENDO INGREDIENTE
 		try {
-			almirA.removerIngrediente("Arroz integral");
+			almirA.removerIngrediente("Sushi");
 		} catch (IngredienteNaoEncontradoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------");
 			System.out.printf(e.getMessage() + "\n\n");
 		}
 
+		
 		ingredientesFornecedor1.inserir(ingredienteF11);
 		ingredientesFornecedor1.inserir(ingredienteF12);
 		ingredientesFornecedor1.inserir(ingredienteF13);
@@ -99,9 +103,10 @@ public class mainteste {
 
 		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.printf(e.getMessage() + "\n");
 		}
-
+		
+		//Tentando cadastrar o mesmo fornecedor
 		try {
 			almirA.cadastrarFornecedor(acompanhamentos);
 
@@ -110,7 +115,7 @@ public class mainteste {
 
 		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.printf(e.getMessage() + "\n");
 		}
 
 		try {
@@ -121,7 +126,7 @@ public class mainteste {
 
 		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.printf(e.getMessage() + "\n");
 		}
 
 		try {
@@ -131,8 +136,8 @@ public class mainteste {
 			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
 
 		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\\n\\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
 		}
 
 		try {
@@ -142,8 +147,8 @@ public class mainteste {
 			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
 
 		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
-			System.out.printf("\\n\\n----------------- ERRO -----------------\n");
-			System.out.printf(e.getMessage() + "\n\n");
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
 		}
 
 		// REMOCAO DE FORNECEDORES
@@ -152,8 +157,31 @@ public class mainteste {
 			System.out.printf("\n\n------Fornecedor removido com sucesso------");
 		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
 			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+		
+		// ATUALIZANDO FORNECEDORES + INGREDIENTES
+		
+		try {
+			almirA.removerIngrediente("Arroz integral");
+			almirA.cadastrarIngrediente(ingredienteTeste2);
+			
+			RepositorioIngredientesArray ingredientesAtualizados = new RepositorioIngredientesArray();
+			
+			ingredientesAtualizados.inserir(ingredienteTeste2);
+			ingredientesAtualizados.inserir(ingredienteF12);
+			ingredientesAtualizados.inserir(ingredienteF13);
+			ingredientesAtualizados.inserir(ingredienteF14);
+			
+			Fornecedor fornecedorAtualizado = new Fornecedor("Emp1 2.0", ingredientesAtualizados, 101);
+			
+			almirA.atualizarFornecedor(fornecedorAtualizado);
+			
+		} catch (IngredienteNaoEncontradoException | IngredienteJaCadastradoException | FornecedorNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
 			System.out.printf(e.getMessage() + "\n\n");
 		}
+			
 		// LISTA DE CLIENTES
 
 		Cliente cliente1 = new Cliente("Thayna", "CIn", 0);
@@ -197,8 +225,8 @@ public class mainteste {
 			System.out.println("----------------- ERRO -----------------");
 			System.out.println(e.getMessage() + "\n\n");
 		}
-		// ATUALIZANDO FORNECEDORES + INGREDIENTES
-
+		
+	
 		// TESTE LISTA
 		RepositorioFornecedores fornecedoresLista = new RepositorioFornecedoresLista();
 		RepositorioIngredientes ingredientesLista = new RepositorioIngredientesLista();
@@ -208,7 +236,124 @@ public class mainteste {
 
 		Almir almirL = new Almir(fornecedoresLista, ingredientesLista, pedidosLista, pratosLista, clientesLista);
 
+	
+		// CADASTRO DE INGREDIENTES
+		try {
+			almirL.cadastrarIngrediente(ingredienteF11);
+			almirL.cadastrarIngrediente(ingredienteF12);
+			almirL.cadastrarIngrediente(ingredienteF13);
+			almirL.cadastrarIngrediente(ingredienteF14);
+
+			almirL.cadastrarIngrediente(ingredienteF21);
+			almirL.cadastrarIngrediente(ingredienteF22);
+			almirL.cadastrarIngrediente(ingredienteF23);
+
+			almirL.cadastrarIngrediente(ingredienteF31);
+			almirL.cadastrarIngrediente(ingredienteF32);
+			
+			almirL.cadastrarIngrediente(ingredienteTeste1);
+			
+		} catch (IngredienteJaCadastradoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n\n");
+		}
+
+		// REMOVENDO INGREDIENTE
+		try {
+			almirL.removerIngrediente("Sushi");
+		} catch (IngredienteNaoEncontradoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------");
+			System.out.printf(e.getMessage() + "\n\n");
+		}
+
+		// CADASTRO DE FORNECEDORES
+		try {
+			almirL.cadastrarFornecedor(acompanhamentos);
+
+			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
+			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+
+		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------");
+			System.out.printf(e.getMessage() + "\n");
+		}
 		
+		//Tentando cadastrar o mesmo fornecedor
+		try {
+			almirL.cadastrarFornecedor(acompanhamentos);
+
+			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
+			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+
+		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+
+		try {
+			almirL.cadastrarFornecedor(carnes);
+
+			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
+			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+
+		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+
+		try {
+			almirL.cadastrarFornecedor(especiais);
+
+			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
+			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+
+		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+
+		try {
+			almirL.cadastrarFornecedor(sonho);
+
+			System.out.printf("\n\n------Fornecedor cadastrado com sucesso------");
+			System.out.printf("\n\n------Ingredientes cadastrados com sucesso------");
+
+		} catch (FornecedorJaCadastradoException | IngredienteNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+
+		// REMOCAO DE FORNECEDORES
+		try {
+			almirL.removerFornecedor(104);
+			System.out.printf("\n\n------Fornecedor removido com sucesso------");
+		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n");
+		}
+		
+		// ATUALIZANDO FORNECEDORES + INGREDIENTES
+		
+		try {
+			almirL.removerIngrediente("Arroz integral");
+			almirL.cadastrarIngrediente(ingredienteTeste2);
+			
+			RepositorioIngredientesArray ingredientesAtualizados = new RepositorioIngredientesArray();
+			
+			ingredientesAtualizados.inserir(ingredienteTeste2);
+			ingredientesAtualizados.inserir(ingredienteF12);
+			ingredientesAtualizados.inserir(ingredienteF13);
+			ingredientesAtualizados.inserir(ingredienteF14);
+			
+			Fornecedor fornecedorAtualizado = new Fornecedor("Emp1 2.0", ingredientesAtualizados, 101);
+			
+			almirL.atualizarFornecedor(fornecedorAtualizado);
+			
+		} catch (IngredienteNaoEncontradoException | IngredienteJaCadastradoException | FornecedorNaoEncontradoException | FornecedorInvalidoException e) {
+			System.out.printf("\n\n----------------- ERRO -----------------\n");
+			System.out.printf(e.getMessage() + "\n\n");
+		}
 	}
 
 }
+
