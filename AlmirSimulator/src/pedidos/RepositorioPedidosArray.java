@@ -40,6 +40,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void removerPedido(Cliente cliente) {
 		int index = cliente.getCodigoCliente();
+		
 		if(this.arrayPedidos.length -1 >= index) { // Reorganizando os clientes no array.
 			System.arraycopy(arrayPedidos, index + 1, this.arrayPedidos, index, this.arrayPedidos.length -1 - index);
 		}
@@ -49,6 +50,7 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 
 	public void atualizarPedido(Cliente cliente, Pedido novoPedido) {
 		for (int i = 0; i < codigo; i++) {
+			
 			if (this.arrayPedidos[i].getCliente().getCodigoCliente() == cliente.getCodigoCliente()) {
 				this.arrayPedidos[i] = novoPedido; // Troca o pedido do cliente;
 				

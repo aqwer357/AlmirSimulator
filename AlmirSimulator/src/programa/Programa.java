@@ -16,15 +16,7 @@ public class Programa {
 
 		Scanner in = new Scanner(System.in);
 
-		// TESTE ARRAY
-
-		RepositorioFornecedores fornecedoresArray = new RepositorioFornecedoresArray();
-		RepositorioIngredientes ingredientesArray = new RepositorioIngredientesArray();
-		RepositorioPedidos pedidosArray = new RepositorioPedidosArray();
-		RepositorioPratos pratosArray = new RepositorioPratosArray();
-		RepositorioClientes clientesArray = new RepositorioClientesArray();
-
-		Almir almirA = new Almir(fornecedoresArray, ingredientesArray, pedidosArray, pratosArray, clientesArray);
+		//***OS OBJETOS CRIADOS A PARTIR DAQUI SAO USADOS TANTO PRA ARRAY QTO PARA LISTA!!***
 
 		RepositorioIngredientesArray ingredientesFornecedor1 = new RepositorioIngredientesArray();
 		RepositorioIngredientesArray ingredientesFornecedor2 = new RepositorioIngredientesArray();
@@ -32,7 +24,7 @@ public class Programa {
 		RepositorioIngredientesArray ingredientesFornecedor4 = new RepositorioIngredientesArray();
 
 		//CRIACAO DE INGREDIENTES
-		
+
 		Ingrediente ingredienteF11 = new Ingrediente("Arroz integral", false);
 		Ingrediente ingredienteF12 = new Ingrediente("Feijao mulatinho", false);
 		Ingrediente ingredienteF13 = new Ingrediente("Feijao macassar", false);
@@ -49,7 +41,7 @@ public class Programa {
 		Ingrediente ingredienteTeste2 = new Ingrediente("Arroz branco", false);
 
 		//CRIACAO DE FORNECEDORES
-		
+
 		ingredientesFornecedor1.inserir(ingredienteF11);
 		ingredientesFornecedor1.inserir(ingredienteF12);
 		ingredientesFornecedor1.inserir(ingredienteF13);
@@ -118,8 +110,18 @@ public class Programa {
 		else
 			prato5 = new PratoComum(pedido5.getCliente().getNome());
 
+		// TESTE ARRAY
+
+		RepositorioFornecedores fornecedoresArray = new RepositorioFornecedoresArray();
+		RepositorioIngredientes ingredientesArray = new RepositorioIngredientesArray();
+		RepositorioPedidos pedidosArray = new RepositorioPedidosArray();
+		RepositorioPratos pratosArray = new RepositorioPratosArray();
+		RepositorioClientes clientesArray = new RepositorioClientesArray();
+
+		Almir almirA = new Almir(fornecedoresArray, ingredientesArray, pedidosArray, pratosArray, clientesArray);
 
 		// CADASTRO DE INGREDIENTES
+
 		try {
 			almirA.cadastrarIngrediente(ingredienteF11);
 			almirA.cadastrarIngrediente(ingredienteF12);
@@ -143,6 +145,7 @@ public class Programa {
 		}
 
 		// REMOVENDO INGREDIENTE
+
 		try {
 			almirA.removerIngrediente("Sushi");
 			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
@@ -153,7 +156,7 @@ public class Programa {
 		}
 
 		// CADASTRO DE FORNECEDORES
-		
+
 		try {
 			almirA.cadastrarFornecedor(acompanhamentos);
 
@@ -165,7 +168,7 @@ public class Programa {
 		}
 
 		//TENTA CADASTRAR UM FORNCEDOR JA CADASTRADO
-		
+
 		try {
 			almirA.cadastrarFornecedor(acompanhamentos);
 
@@ -207,7 +210,7 @@ public class Programa {
 		}
 
 		// REMOCAO DE FORNECEDORES
-		
+
 		try {
 
 			almirA.removerFornecedor(104);
@@ -245,7 +248,7 @@ public class Programa {
 		}
 
 		// CADASTRA OS PEDIDOS + CLIENTES
-		
+
 		try {
 			almirA.cadastrarCliente(cliente1);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
@@ -332,7 +335,7 @@ public class Programa {
 		}
 
 		// CADASTRA OS PEDIDOS
-		
+
 		try {
 			almirA.cadastrarPedido(pedido1);
 			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
@@ -397,7 +400,7 @@ public class Programa {
 		}
 
 		// ATUALIZA PEDIDO ERRADO
-		
+
 		try {
 			almirA.atualizarPedido(cliente1, pedidoAtualizado);
 			System.out.println("Pedido(s) atualizado(s) com sucesso.\n");
@@ -418,9 +421,9 @@ public class Programa {
 			System.out.println(e.getMessage() + "\n");
 
 		}
-		
+
 		//CHECA SE O CLIENTE EXISTE (REP)
-		
+
 		try {
 			almirA.obterPedido(cliente6);
 			System.out.println("O(A)(s) cliente(s) esta(ao) registrado(a)(s) no sistema.");
@@ -495,10 +498,8 @@ public class Programa {
 			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n");
 		}
-
+		
 		// TESTE LISTA
-
-		System.out.println("INICIO TESTE LISTA");
 
 		RepositorioFornecedores fornecedoresLista = new RepositorioFornecedoresLista();
 		RepositorioIngredientes ingredientesLista = new RepositorioIngredientesLista();
@@ -509,7 +510,7 @@ public class Programa {
 		Almir almirL = new Almir(fornecedoresLista, ingredientesLista, pedidosLista, pratosLista, clientesLista);
 
 		// CADASTRO DE INGREDIENTES
-		
+
 		try {
 			almirL.cadastrarIngrediente(ingredienteF11);
 			almirL.cadastrarIngrediente(ingredienteF12);
@@ -533,7 +534,7 @@ public class Programa {
 		}
 
 		// REMOVENDO INGREDIENTE
-		
+
 		try {
 			almirL.removerIngrediente("Sushi");
 			System.out.println("Ingrediente(s) removido(s) com sucesso.\n");
@@ -544,7 +545,7 @@ public class Programa {
 		}
 
 		// CADASTRO DE FORNECEDORES
-		
+
 		try {
 
 			almirL.cadastrarFornecedor(acompanhamentos);
@@ -556,7 +557,7 @@ public class Programa {
 		}
 
 		// TENTANDO CADASTRAR FORNECEDOR
-		
+
 		try {
 			almirL.cadastrarFornecedor(acompanhamentos);
 
@@ -598,7 +599,7 @@ public class Programa {
 		}
 
 		// REMOCAO DE FORNECEDORES
-		
+
 		try {
 
 			almirL.removerFornecedor(104);
@@ -636,7 +637,7 @@ public class Programa {
 		}
 
 		// CADASTRA OS PEDIDOS + CLIENTES
-		
+
 		try {
 			almirL.cadastrarCliente(cliente1);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
@@ -694,7 +695,7 @@ public class Programa {
 		}
 
 		// REMOVENDO E ATUALIZANDO CLIENTES
-		
+
 		try {
 			almirL.removerCliente("Sr. Removido");
 			System.out.println("Cliente removido com sucesso.\n");
@@ -714,7 +715,7 @@ public class Programa {
 		}
 
 		// CADASTRA OS PEDIDOS
-		
+
 		try {
 			almirL.cadastrarPedido(pedido1);
 			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
@@ -741,9 +742,9 @@ public class Programa {
 			System.out.println(e.getMessage() + "\n");
 
 		}
-		
+
 		//IMPRIME O PEDIDO DO CLIENTE
-		
+
 		try {
 			System.out.println("O pedido do(a) "+ cliente3.getNome()+" é:");
 			System.out.print(pedido3.printRefeicao());
@@ -782,7 +783,7 @@ public class Programa {
 		}
 
 		// ATUALIZA PEDIDO
-		
+
 		try {
 			almirL.atualizarPedido(cliente1, pedidoAtualizado);
 			System.out.println("Pedido(s) atualizado(s) com sucesso.\n");
@@ -793,7 +794,7 @@ public class Programa {
 		}
 
 		// REMOVE PEDIDO
-		
+
 		try {
 			almirL.removerPedido(cliente6);
 			System.out.println("Pedido(s) removido(s) com sucesso.\n");
@@ -805,7 +806,7 @@ public class Programa {
 		}
 
 		//CHECA SE O PEDIDO EXISTE (REP)
-		
+
 		try {
 			almirL.existePedido(cliente6);
 			System.out.println("O(A)(s) cliente(s) esta(ao) registrado(a)(s) no sistema.");
@@ -840,7 +841,7 @@ public class Programa {
 			prato5 = new PratoComum(pedido5.getCliente().getNome());
 
 		// CADASTRANDO PRATOS
-		
+
 		try {
 			almirL.cadastrarPrato(prato1, pedido1);
 			System.out.println("Prato cadastrado com sucesso.\n");
@@ -878,7 +879,7 @@ public class Programa {
 		}
 
 		// ATUALIZANDO UM PRATO
-		
+
 		prato4Atualizado = new PratoEspecial(pedido4.getCliente().getNome());
 
 		try {
