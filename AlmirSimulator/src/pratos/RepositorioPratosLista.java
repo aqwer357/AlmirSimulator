@@ -24,7 +24,7 @@ public class RepositorioPratosLista implements RepositorioPratos {
 	public void atualizar(Prato pratoNovo) {
 		if (pratoNovo.getNome().equals(this.prato.getNome()))
 			this.prato = pratoNovo;
-		else
+		else if (this.proximo != null)
 			this.proximo.atualizar(pratoNovo);
 	}
 

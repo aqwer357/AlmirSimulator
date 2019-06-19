@@ -16,7 +16,7 @@ public abstract class Prato {
 		return ingredientes;
 	}
 
-	abstract void inserirIngrediente(Ingrediente ingrediente) throws IIException;
+	public abstract void inserirIngrediente(Ingrediente ingrediente) throws IIException;
 
 	protected void setIngredientes(RepositorioIngredientes ingredientes) {
 		this.ingredientes = ingredientes;

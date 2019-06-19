@@ -103,7 +103,7 @@ public class Almir {
 	}
 
 	// PRATOS
-	public void cadastrarPrato(Prato prato, Pedido pedido, CadastroIngredientes ingredientes)
+	public void cadastrarPrato(Prato prato, Pedido pedido)
 			throws PJFIException, IIException, IngredienteNaoEncontradoException {
 		this.pratos.inserir(prato, pedido);
 	}
