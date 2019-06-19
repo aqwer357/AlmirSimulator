@@ -66,7 +66,7 @@ public class Programa {
 
 		} catch (IngredienteJaCadastradoException e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// REMOVENDO INGREDIENTE
@@ -76,7 +76,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		ingredientesFornecedor1.inserir(ingredienteF11);
@@ -105,7 +105,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// Tentando cadastrar o mesmo fornecedor
@@ -116,7 +116,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -126,7 +126,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -136,7 +136,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -146,7 +146,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// REMOCAO DE FORNECEDORES
@@ -157,7 +157,7 @@ public class Programa {
 
 		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// ATUALIZANDO FORNECEDORES + INGREDIENTES
@@ -183,7 +183,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// LISTA DE CLIENTES
@@ -194,18 +194,18 @@ public class Programa {
 
 		Cliente cliente2 = new Cliente("Fabiano", "CCEN", 1);
 		Pedido pedido2 = new Pedido(cliente2, new String[] { "Macarrao", "Pure de batatas", "Carne" }, false);
-		
+
 		Cliente cliente3 = new Cliente("Jean", "CFCH", 2);
 		Pedido pedido3 = new Pedido(cliente3, new String[] { "Lasanha" }, true);
-		
+
 		Cliente cliente4 = new Cliente("Sergio", "CIn", 3);
 		Pedido pedido4 = new Pedido(cliente4, new String[] { "Lasanha", "Frango a parmegiana" }, true);
-		
+
 		Cliente cliente5 = new Cliente("Ricardo", "CCEN", 4);
 		Pedido pedido5 = new Pedido(cliente5, new String[] { "Lasanha" }, false);
-		
+
 		Cliente cliente5Atualizar = new Cliente("Ricardo", "CIn", 4);
-		
+
 		Cliente cliente6 = new Cliente("Sr. Removido", "Lugar nenhum", 5);
 		Pedido pedido6 = new Pedido(cliente6, new String[] { "Lasanha" }, false);
 
@@ -217,7 +217,7 @@ public class Programa {
 
 		catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -226,7 +226,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -236,7 +236,7 @@ public class Programa {
 
 		catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -245,16 +245,16 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarCliente(cliente4);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -263,38 +263,38 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarCliente(cliente6);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVENDO E ATUALIZANDO CLIENTES
-		
+
 		try {
 			almirA.removerCliente("Sr. Removido");
-			System.out.println("Cliente removido com sucesso.\n");
+			System.out.println("Cliente(s) removido(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.atualizarClientes(cliente5Atualizar);
-			System.out.println("Cliente atualizado com sucesso.\n");
+			System.out.println("Cliente(s) atualizado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// CADASTRA OS PEDIDOS
 		try {
 			almirA.cadastrarPedido(pedido1);
@@ -302,7 +302,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 		try {
 			almirA.cadastrarPedido(pedido2);
@@ -310,25 +310,44 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
+		try {
+			almirA.cadastrarPedido(pedido3);
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
 		
+		}
+		try {
+			System.out.println("O pedido do(a) "+ cliente3.getNome()+" é:");
+			System.out.print(pedido3.printRefeicao());
+			System.out.println("\n");
+		
+		}
+		catch(Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+		}
+
 		try {
 			almirA.cadastrarPedido(pedido4);
 			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarPedido(pedido5);
 			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -337,9 +356,9 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// ATUALIZA PEDIDO ERRADO
 
 		Pedido pedidoAtualizado = new Pedido(cliente1,
@@ -351,105 +370,119 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVE PEDIDO
-		
+
 		try {
 			almirA.removerPedido(cliente6);
-			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+			System.out.println("Pedido(s) removido(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n");
+		
 		}
+		//CHECA SE O METODO EXISTE (REP)
+		try {
+			almirA.obterPedido(cliente6);
+			System.out.println("O(A)(s) cliente(s) está(ão) registrado(a)(s) no sistema.");
 		
+		}
+		catch(Exception e){
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+			
+		}
+
 		// CRIANDO E CADASTRANDO PRATOS
-		
+
 		Prato prato1, prato2, prato4, prato5, prato4Atualizado;
-		
-		if(pedido1.getTipoPedido())
+
+		if (pedido1.getTipoPedido())
 			prato1 = new PratoEspecial(pedido1.getCliente().getNome());
 		else
 			prato1 = new PratoComum(pedido1.getCliente().getNome());
-		
-		if(pedido2.getTipoPedido())
+
+		if (pedido2.getTipoPedido())
 			prato2 = new PratoEspecial(pedido2.getCliente().getNome());
 		else
 			prato2 = new PratoComum(pedido2.getCliente().getNome());
-		
-		if(pedido4.getTipoPedido())
+
+		if (pedido4.getTipoPedido())
 			prato4 = new PratoEspecial(pedido4.getCliente().getNome());
 		else
 			prato4 = new PratoComum(pedido4.getCliente().getNome());
-		
-		if(pedido5.getTipoPedido())
+
+		if (pedido5.getTipoPedido())
 			prato5 = new PratoEspecial(pedido5.getCliente().getNome());
 		else
 			prato5 = new PratoComum(pedido5.getCliente().getNome());
-		
+
 		try {
 			almirA.cadastrarPrato(prato1, pedido1);
 			System.out.println("Prato cadastrado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarPrato(prato2, pedido2);
 			System.out.println("Prato cadastrado com sucesso.\n");
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarPrato(prato4, pedido4);
 			System.out.println("Prato cadastrado com sucesso.\n");
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.cadastrarPrato(prato5, pedido5);
 			System.out.println("Prato cadastrado com sucesso.\n");
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// ATUALIZANDO UM PRATO
-		
+
 		prato4Atualizado = new PratoEspecial(pedido4.getCliente().getNome());
-		
+
 		try {
 			prato4Atualizado.inserirIngrediente(ingredienteF31);
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirA.atualizarPratos(prato4Atualizado);
 			System.out.println("Prato atualizado com sucesso.\n");
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVENDO PRATO
-		
+
 		try {
 			almirA.removerPrato("Sergio");
 			System.out.println("Prato removido com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
 
 		// TESTE LISTA
 		RepositorioFornecedores fornecedoresLista = new RepositorioFornecedoresLista();
@@ -480,7 +513,7 @@ public class Programa {
 
 		} catch (IngredienteJaCadastradoException e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// REMOVENDO INGREDIENTE
@@ -490,21 +523,22 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// CADASTRO DE FORNECEDORES
 		try {
+			
 			almirL.cadastrarFornecedor(acompanhamentos);
-
 			System.out.println("Fornecedor(es) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
-		// Tentando cadastrar o mesmo fornecedor
+		// TENTANDO CADASTRAR FORNECEDOR
+		
 		try {
 			almirL.cadastrarFornecedor(acompanhamentos);
 
@@ -512,7 +546,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -522,7 +556,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -532,7 +566,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -542,7 +576,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// REMOCAO DE FORNECEDORES
@@ -553,7 +587,7 @@ public class Programa {
 
 		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// ATUALIZANDO FORNECEDORES + INGREDIENTES
@@ -579,7 +613,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		// CADASTRA OS PEDIDOS + CLIENTES
@@ -590,7 +624,7 @@ public class Programa {
 
 		catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -599,47 +633,66 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 		
+		try {
+			almirL.cadastrarCliente(cliente3);
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
+		}
+
+		catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+		}
+
+		try {
+			almirL.cadastrarCliente(cliente4);
+			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+		}
+
 		try {
 			almirL.cadastrarCliente(cliente5);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirL.cadastrarCliente(cliente6);
 			System.out.println("Cliente(s) cadastrado(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVENDO E ATUALIZANDO CLIENTES
-		
+
 		try {
 			almirL.removerCliente("Sr. Removido");
 			System.out.println("Cliente removido com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirL.atualizarClientes(cliente5Atualizar);
 			System.out.println("Cliente atualizado com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// CADASTRA OS PEDIDOS
 		try {
 			almirL.cadastrarPedido(pedido1);
@@ -647,7 +700,7 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 		try {
 			almirL.cadastrarPedido(pedido2);
@@ -665,6 +718,35 @@ public class Programa {
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n");
+		
+		}
+		//IMPRIME O PEDIDO DO CLIENTE		
+		try {
+			System.out.println("O pedido do(a) "+ cliente3.getNome()+" é:");
+			System.out.print(pedido3.printRefeicao());
+			System.out.println("\n");
+		
+		}
+		catch(Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+		}
+		try {
+			almirL.cadastrarPedido(pedido4);
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+		}
+
+		try {
+			almirL.cadastrarPedido(pedido5);
+			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+
+		} catch (Exception e) {
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
 		}
 
 		try {
@@ -673,9 +755,9 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// ATUALIZA PEDIDO
 
 		try {
@@ -684,112 +766,122 @@ public class Programa {
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVE PEDIDO
-		
+
 		try {
 			almirL.removerPedido(cliente6);
-			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+			System.out.println("Pedido(s) removido(s) com sucesso.\n");
 
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
-		}
+			System.out.println(e.getMessage() + "\n");
 		
+		}
+		//CHECA SE O METODO EXISTE (REP)
 		try {
-			almirL.removerPedido(cliente3);
-			System.out.println("Pedido(s) cadastrado(s) com sucesso.\n");
+			almirA.obterPedido(cliente6);
+			System.out.println("O(A)(s) cliente(s) está(ão) registrado(a)(s) no sistema.");
+		
+		}
+		catch(Exception e){
+			System.out.println("ERRO: ");
+			System.out.println(e.getMessage() + "\n");
+			
+		}
 
+		// CADASTRANDO PRATOS
+
+		// PRATOS JA FORAM CRIADOS, MAS ESTOU REINICIALIZANDO ELES PARA TESTAR
+
+		if (pedido1.getTipoPedido())
+			prato1 = new PratoEspecial(pedido1.getCliente().getNome());		
+		else
+			prato1 = new PratoComum(pedido1.getCliente().getNome());
+		
+		if (pedido2.getTipoPedido())
+			prato2 = new PratoEspecial(pedido2.getCliente().getNome());		
+		else
+			prato2 = new PratoComum(pedido2.getCliente().getNome());
+
+		if (pedido4.getTipoPedido())
+			prato4 = new PratoEspecial(pedido4.getCliente().getNome());		
+		else
+			prato4 = new PratoComum(pedido4.getCliente().getNome());
+
+		if (pedido5.getTipoPedido())
+			prato5 = new PratoEspecial(pedido5.getCliente().getNome());		
+		else
+			prato5 = new PratoComum(pedido5.getCliente().getNome());
+
+		try {
+			almirL.cadastrarPrato(prato1, pedido1);
+			System.out.println("Prato cadastrado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n");
 		}
 
-		// CADASTRANDO PRATOS
-		
-		// PRATOS JA FORAM CRIADOS, MAS ESTOU REINICIALIZANDO ELES PARA TESTAR
-		
-		if(pedido1.getTipoPedido())
-			prato1 = new PratoEspecial(pedido1.getCliente().getNome());
-		else
-			prato1 = new PratoComum(pedido1.getCliente().getNome());
-		
-		if(pedido2.getTipoPedido())
-			prato2 = new PratoEspecial(pedido2.getCliente().getNome());
-		else
-			prato2 = new PratoComum(pedido2.getCliente().getNome());
-		
-		if(pedido4.getTipoPedido())
-			prato4 = new PratoEspecial(pedido4.getCliente().getNome());
-		else
-			prato4 = new PratoComum(pedido4.getCliente().getNome());
-		
-		if(pedido5.getTipoPedido())
-			prato5 = new PratoEspecial(pedido5.getCliente().getNome());
-		else
-			prato5 = new PratoComum(pedido5.getCliente().getNome());
-		
-		try {
-			almirL.cadastrarPrato(prato1, pedido1);
-			System.out.println("Prato cadastrado com sucesso.\n");
-		} catch (Exception e) {
-			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
-		}
-		
 		try {
 			almirL.cadastrarPrato(prato2, pedido2);
 			System.out.println("Prato cadastrado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirL.cadastrarPrato(prato4, pedido4);
 			System.out.println("Prato cadastrado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirL.cadastrarPrato(prato5, pedido5);
 			System.out.println("Prato cadastrado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// ATUALIZANDO UM PRATO
-		
+
 		prato4Atualizado = new PratoEspecial(pedido4.getCliente().getNome());
-		
+
 		try {
 			prato4Atualizado.inserirIngrediente(ingredienteF31);
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		try {
 			almirL.atualizarPratos(prato4Atualizado);
 			System.out.println("Prato atualizado com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
-		
+
 		// REMOVENDO PRATO
-		
+
 		try {
 			almirL.removerPrato("Sergio");
 			System.out.println("Prato removido com sucesso.\n");
+			
 		} catch (Exception e) {
 			System.out.println("ERRO: ");
-			System.out.println(e.getMessage() + "\n\n");
+			System.out.println(e.getMessage() + "\n");
 		}
 	}
 
