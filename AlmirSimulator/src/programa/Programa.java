@@ -155,7 +155,7 @@ public class Programa {
 			almirA.removerFornecedor(104);
 			System.out.println("Fornecedor(es) removido(s) com sucesso.\n");
 
-		} catch (FornecedorNaoEncontradoException | IngredienteNaoEncontradoException e) {
+		} catch (Exception e) {
 			System.out.println("ERRO: ");
 			System.out.println(e.getMessage() + "\n");
 		}
